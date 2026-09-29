@@ -1,0 +1,18 @@
+# Scala / sbt build output
+target/
+project/project/
+
+# Editors and language servers
+.idea/
+*.iml
+.bsp/
+.bloop/
+.metals/
+.scala-build/
+
+# Local configuration and operating system files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
