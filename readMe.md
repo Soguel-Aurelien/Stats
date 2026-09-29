@@ -1,44 +1,53 @@
-# Stats — Tore & Assists
+# Fotstats
 
-Eine einfache statische Fussball-Seite mit zwei Ranglisten:
+Fussballstatistiken für Premier League, Bundesliga, Serie A, LaLiga, Ligue 1
+und die Schweizer Super League. Pro Rangliste werden maximal 15 Spieler
+angezeigt, durchgehend nummeriert. Bei gleichen Werten wird alphabetisch sortiert.
 
-- **Topscorer:** acht Spieler nach Toren sortiert.
-- **Assists:** dieselben acht Spieler nach Vorlagen sortiert.
+## Starten
 
-Alle Namen, Vereine und Werte sind erfundene Testdaten. Es gibt keine API, keine externen Datenabfragen, kein JavaScript, kein Konto und keine Anmeldung.
-
-## Einfach öffnen
-
-`src/main/resources/public/index.html` im Browser öffnen. Die Seite funktioniert direkt als Datei und ohne Internet. Testdaten stehen in den beiden HTML-Tabellen und können dort geändert werden; die Reihenfolge ist manuell absteigend sortiert.
-
-## Optional über Scala starten
-
-Das bestehende Scala-Projekt enthält nur einen kleinen statischen Webserver. Voraussetzungen: JDK 21 und sbt. Beim ersten Build werden die Build-Abhängigkeiten heruntergeladen.
+Mit Java und sbt:
 
 ```sh
 sbt run
 ```
 
-Anschliessend http://localhost:8080 öffnen. Mit `Strg+C` stoppen. `PORT` (Standard `8080`) und `HOST` (Standard `0.0.0.0`) sind optional als Prozess-Umgebungsvariablen einstellbar. Eine `.env`-Datei wird nicht automatisch geladen.
-
-## Prüfen und paketieren
+Alternativ mit Node.js 22 oder neuer, ohne zusätzliche Pakete:
 
 ```sh
-sbt test stage
-java -cp "target/stage/*" stats.Main
+npm.cmd start
 ```
 
-Die Tests prüfen die statischen Dateien, dass die entfernten API-Endpunkte nicht mehr verfügbar sind, den Pfadschutz sowie GET/HEAD und abgewiesene Schreibzugriffe.
+Dann http://localhost:8080 öffnen. Nur einen Server gleichzeitig starten.
+Mit Strg+C stoppen. `PORT` und `HOST` können als Prozess-Umgebungsvariablen
+gesetzt werden; eine `.env`-Datei wird nicht automatisch gelesen.
 
-## Online bereitstellen
-
-Für statisches Hosting genügt der Inhalt von `src/main/resources/public/`: `index.html`, `styles.css` und `favicon.svg`. Ein Backend oder API-Schlüssel ist dafür nicht nötig.
-
-Alternativ kann der statische Scala-Server mit Docker laufen:
+## Daten aktualisieren
 
 ```sh
-docker build -t football-stats .
-docker run --rm -p 8080:8080 football-stats
+npm.cmd run refresh-data
 ```
 
-Die Webseite ist noch nicht öffentlich veröffentlicht. Der Docker-Build wurde hier nicht ausgeführt.
+Benötigt Internet. Quellen: ESPN und Swiss Football League; Clublogos kommen
+von deren Bildservern. Der Import speichert `src/main/resources/public/data/stats.json`.
+Danach die Webseite neu laden; beim Scala-Server vorher neu starten.
+Es gibt keinen automatischen Abruf. Bei Fehlern bleibt der letzte Datenstand erhalten.
+
+## Tests
+
+```sh
+npm.cmd test
+sbt test
+```
+
+## Aufbau
+
+- `src/main/resources/public/`: Webseite und gespeicherte Statistiken.
+- `src/main/scala/`: Scala-Webserver; Tests unter `src/test/scala/`.
+- `scripts/`: Datenimport und alternativer Node-Webserver.
+- `tests/`: Tests für Datenverarbeitung, Ranglisten und Node-Server.
+
+`target/` und `project/target/` sind automatisch erzeugte Build-Ordner.
+Sie dürfen gelöscht werden und entstehen beim nächsten Scala-Build erneut.
+Der vorhandene `Dockerfile` baut den Scala-Server mit Java 21; alternativ kann
+der Inhalt von `src/main/resources/public/` statisch gehostet werden.

@@ -1,5 +1,6 @@
 # Scala / sbt build output
 target/
+project/target/
 project/project/
 
 # Editors and language servers
@@ -13,7 +14,6 @@ project/project/
 # Local configuration and operating system files
 .env
 .env.*
-!.env.example
 .DS_Store
 Thumbs.db
 
