@@ -16,3 +16,7 @@ project/project/
 !.env.example
 .DS_Store
 Thumbs.db
+
+# Local build tools and logs
+.tools/
+*.log

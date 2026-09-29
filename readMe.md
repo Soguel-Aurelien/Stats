@@ -1,78 +1,44 @@
-# Stats
+# Stats — Tore & Assists
 
-Grundprojekt für eine Scala-Anwendung mit sbt.
+Eine einfache statische Fussball-Seite mit zwei Ranglisten:
 
-## Voraussetzungen
+- **Topscorer:** acht Spieler nach Toren sortiert.
+- **Assists:** dieselben acht Spieler nach Vorlagen sortiert.
 
-- Git
-- Java Development Kit (JDK) 21
-- sbt (die Projektversion wird automatisch aus `project/build.properties` geladen)
-- Internetzugang zum Herunterladen der Build-Werkzeuge und Abhängigkeiten beim ersten Start
+Alle Namen, Vereine und Werte sind erfundene Testdaten. Es gibt keine API, keine externen Datenabfragen, kein JavaScript, kein Konto und keine Anmeldung.
 
-Das Projekt verwendet Scala **3.3.8** und sbt **1.10.7**. Scala muss nicht separat installiert werden: sbt lädt die im Projekt festgelegte Version herunter.
+## Einfach öffnen
 
-## Installation unter Windows
+`src/main/resources/public/index.html` im Browser öffnen. Die Seite funktioniert direkt als Datei und ohne Internet. Testdaten stehen in den beiden HTML-Tabellen und können dort geändert werden; die Reihenfolge ist manuell absteigend sortiert.
 
-1. [Git für Windows](https://git-scm.com/downloads/win) installieren.
-2. Ein JDK 21 installieren, beispielsweise [Eclipse Temurin](https://adoptium.net/temurin/releases/?version=21). Bei der Installation Java zum `PATH` hinzufügen und `JAVA_HOME` auf das JDK-Verzeichnis setzen.
-3. sbt gemäß der [offiziellen Windows-Anleitung](https://www.scala-sbt.org/1.x/docs/Installing-sbt-on-Windows.html) installieren, beispielsweise mit dem dort verlinkten Windows-Installer. Danach PowerShell neu öffnen, damit Änderungen am `PATH` wirksam werden.
-4. Git und Java überprüfen:
+## Optional über Scala starten
 
-   ```powershell
-   git --version
-   java -version
-   javac -version
-   ```
+Das bestehende Scala-Projekt enthält nur einen kleinen statischen Webserver. Voraussetzungen: JDK 21 und sbt. Beim ersten Build werden die Build-Abhängigkeiten heruntergeladen.
 
-5. PowerShell im Projektordner `Stats` öffnen. Falls das Projekt bereits in einem Remote-Repository veröffentlicht wurde, kann es alternativ geklont werden (die URL ersetzen):
-
-   ```powershell
-   git clone <REPOSITORY-URL> Stats
-   cd Stats
-   ```
-
-   Das lokale Repository ist bereits initialisiert; eine Remote-URL ist noch nicht eingerichtet.
-
-6. Im Projektordner sbt überprüfen und das Projekt kompilieren:
-
-   ```powershell
-   sbt sbtVersion
-   sbt compile
-   ```
-
-   Beim ersten Aufruf lädt sbt die benötigten Komponenten herunter. Das kann einige Minuten dauern.
-
-7. Anwendung starten:
-
-   ```powershell
-   sbt run
-   ```
-
-   Die Anwendung gibt `Willkommen bei Stats!` aus.
-
-Unter macOS und Linux ebenfalls Git, JDK 21 und sbt installieren; die sbt-Befehle bleiben gleich. Siehe die [sbt-Installationsanleitung](https://www.scala-sbt.org/1.x/docs/Setup.html).
-
-## Projektstruktur
-
-```text
-Stats/
-├── build.sbt                       # Projektname und Scala-Version
-├── project/
-│   └── build.properties            # sbt-Version
-├── src/main/scala/stats/
-│   └── Main.scala                  # Einstiegspunkt
-├── .gitignore
-└── readMe.md
+```sh
+sbt run
 ```
 
-## Nützliche Befehle
+Anschliessend http://localhost:8080 öffnen. Mit `Strg+C` stoppen. `PORT` (Standard `8080`) und `HOST` (Standard `0.0.0.0`) sind optional als Prozess-Umgebungsvariablen einstellbar. Eine `.env`-Datei wird nicht automatisch geladen.
 
-| Befehl | Zweck |
-| --- | --- |
-| `sbt compile` | Quellcode kompilieren |
-| `sbt run` | Anwendung starten |
-| `sbt test` | Tests ausführen, sobald Tests und ein Testframework ergänzt wurden |
-| `sbt clean` | Build-Ausgaben entfernen |
-| `git status` | Änderungen im Repository anzeigen |
+## Prüfen und paketieren
 
-Falls `sbt` oder `java` nicht erkannt wird, die Installation und den `PATH` prüfen und das Terminal neu öffnen.
+```sh
+sbt test stage
+java -cp "target/stage/*" stats.Main
+```
+
+Die Tests prüfen die statischen Dateien, dass die entfernten API-Endpunkte nicht mehr verfügbar sind, den Pfadschutz sowie GET/HEAD und abgewiesene Schreibzugriffe.
+
+## Online bereitstellen
+
+Für statisches Hosting genügt der Inhalt von `src/main/resources/public/`: `index.html`, `styles.css` und `favicon.svg`. Ein Backend oder API-Schlüssel ist dafür nicht nötig.
+
+Alternativ kann der statische Scala-Server mit Docker laufen:
+
+```sh
+docker build -t football-stats .
+docker run --rm -p 8080:8080 football-stats
+```
+
+Die Webseite ist noch nicht öffentlich veröffentlicht. Der Docker-Build wurde hier nicht ausgeführt.
