@@ -42,7 +42,10 @@ async function espn(league) {
     const [athlete, ...teams] = await Promise.all([lookup(p.athleteRef), ...p.teamRefs.map(lookup)]);
     if (!athlete.displayName || teams.some(t => !t.displayName)) throw new Error('Spieler- oder Vereinsname fehlt.');
     const { athleteRef, teamRef, teamRefs, ...stats } = p;
-    return { ...stats, name: athlete.displayName, team: teams.map(t => t.displayName).join(' / '), url: `https://www.espn.com/soccer/player/_/id/${p.id}` };
+    const flag = athlete.flag?.href || (athlete.citizenship === 'Kosovo' ? 'https://a.espncdn.com/i/teamlogos/countries/500/kos.png' : null);
+    const nationalities = athlete.citizenship ? [{ name: athlete.citizenship, flag }] : [];
+    const clubs = teams.map(t => ({ name: t.displayName, logo: t.logos?.find(l => l.rel?.includes('default'))?.href || t.logos?.[0]?.href || null }));
+    return { ...stats, name: athlete.displayName, team: teams.map(t => t.displayName).join(' / '), nationalities, clubs, url: `https://www.espn.com/soccer/player/_/id/${p.id}` };
   });
   return { ...league, season: `${season.year}/${String(season.year + 1).slice(2)}`, seasonStart: season.startDate, seasonEnd: season.endDate, fetchedAt: new Date().toISOString(), source: { name: 'ESPN', url: `https://www.espn.com/soccer/stats/_/league/${league.id}/season/${season.year}` }, players };
 }

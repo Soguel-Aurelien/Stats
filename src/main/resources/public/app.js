@@ -16,8 +16,36 @@ function safeLink(url) {
 }
 function playerLink(player) {
   const link = el('a', 'player-link'); link.href = safeLink(player.url); link.target = '_blank'; link.rel = 'noopener noreferrer';
-  link.append(el('span', 'player-name', player.name), el('span', 'player-team', player.team));
+  link.append(playerName(player, 'player-name'), clubNames(player, 'player-team'));
   return link;
+}
+function badge(url, className, label) {
+  const img = el('img', className);
+  const allowed = ['a.espncdn.com', 'origins-common-assets.origins-digital.com', 'origins-sportlab-payload-s3.origins-digital.com'];
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol !== 'https:' || !allowed.includes(parsed.hostname)) return null;
+    img.src = parsed.href;
+  } catch { return null; }
+  img.alt = label; img.title = label; img.width = 20; img.height = 16;
+  img.referrerPolicy = 'no-referrer';
+  img.addEventListener('error', () => { img.replaceWith(el('span', 'badge-fallback', label)); });
+  return img;
+}
+function playerName(player, className) {
+  const name = el('span', className);
+  name.append(el('span', '', player.name));
+  return name;
+}
+function clubNames(player, className) {
+  const clubs = el('span', className);
+  for (const club of player.clubs || [{ name: player.team }]) {
+    const item = el('span', 'club-identity');
+    const logo = badge(club.logo, 'club-logo', '');
+    if (logo) item.append(logo);
+    item.append(document.createTextNode(club.name)); clubs.append(item);
+  }
+  return clubs;
 }
 function currentId() { return location.hash.slice(1) || 'eng.1'; }
 function renderNav() {
@@ -34,7 +62,8 @@ function renderLeaders() {
     const card = el('article', `leader-card ${key}`);
     const label = el('h3', 'card-label', config.card);
     const main = el('div', 'leader-main'), identity = el('div');
-    identity.append(el('p', 'leader-name', first?.name || 'Noch keine Werte'), el('p', 'leader-team', first?.team || ''));
+    if (first) identity.append(playerName(first, 'leader-name'), clubNames(first, 'leader-team'));
+    else identity.append(el('p', 'leader-name', 'Noch keine Werte'));
     main.append(identity, el('span', 'leader-value', first ? String(first[key]) : '—'));
     card.append(label, main);
     return card;

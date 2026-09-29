@@ -49,6 +49,12 @@ export function parseSflPlayers(pages) {
     if (!p.name || !p.team?.name || !stats.has('total games')) throw new Error('SFL: Unvollständiger Spieler.');
     const goals = number('total goals'), assists = number('total assists');
     const row = { id: `${p.name}:${p.team.providerId || p.team.name}`, name: p.name, team: p.team.name, matches: number('total games'), goals, assists, points: goals + assists, url: p.slug ? `https://sfl.ch/de/players/${encodeURIComponent(p.slug)}` : 'https://sfl.ch/de/dashboard-stats/stats-superleague' };
+    row.clubs = [{ name: p.team.name, logo: p.team.logoUrl || null }];
+    const countries = (p.nationality || '').split(' / ').filter(Boolean);
+    row.nationalities = countries.map((name, index) => {
+      const id = index === 0 ? p.nationalityId : p.secondNationalityId;
+      return { name, flag: id ? `https://origins-common-assets.origins-digital.com/sport-assets/opta_sd/country_flag/${encodeURIComponent(id)}@3x.png` : null };
+    });
     const previous = players.get(row.id);
     if (previous && (previous.goals !== goals || previous.assists !== assists)) throw new Error('SFL: Uneinheitliche Spielerwerte.');
     if (row.points > 0) players.set(row.id, row);
