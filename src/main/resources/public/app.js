@@ -2,7 +2,8 @@ import { ranking } from './rankings.js';
 
 const $ = selector => document.querySelector(selector);
 const metrics = { goals: { title: 'Torschützen', card: 'Top-Torschütze' }, assists: { title: 'Assist-Rangliste', card: 'Top-Vorlagengeber' }, points: { title: 'Scorer-Rangliste', card: 'Top-Scorer' } };
-let dataset, league, metric = 'points', limit = 10;
+let dataset, league, metric = 'points';
+const limit = 15;
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -35,8 +36,7 @@ function renderLeaders() {
     const main = el('div', 'leader-main'), identity = el('div');
     identity.append(el('p', 'leader-name', first?.name || 'Noch keine Werte'), el('p', 'leader-team', first?.team || ''));
     main.append(identity, el('span', 'leader-value', first ? String(first[key]) : '—'));
-    const ties = first ? leaders.filter(p => p[key] === first[key]).length - 1 : 0;
-    card.append(label, main, el('p', 'leader-tie', ties ? `+ ${ties} weitere Spieler mit ${first[key]} ${key === 'goals' ? 'Toren' : key === 'assists' ? 'Assists' : 'Scorerpunkten'}` : ''));
+    card.append(label, main);
     return card;
   }));
 }
@@ -44,7 +44,7 @@ function renderTable() {
   const rows = ranking(league.players, metric, limit);
   $('#ranking-title').textContent = metrics[metric].title;
   $('#table-caption').textContent = `${league.name}, Saison ${league.season || 'unbekannt'}: ${metrics[metric].title}, absteigend sortiert.`;
-  $('#ranking-count').textContent = `${rows.length} von ${league.players.filter(p => p[metric] > 0).length} Spielern`;
+  $('#ranking-count').textContent = `Top ${rows.length}`;
   document.querySelectorAll('[data-metric]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.metric === metric)));
   document.querySelectorAll('[data-column]').forEach(cell => { cell.classList.toggle('selected', cell.dataset.column === metric); cell.removeAttribute('aria-sort'); if (cell.dataset.column === metric) cell.setAttribute('aria-sort', 'descending'); });
   $('#ranking-body').replaceChildren(...rows.map(p => {
@@ -53,7 +53,6 @@ function renderTable() {
     tr.append(rankCell, identity, el('td', 'numeric games-column', String(p.matches)));
     for (const key of Object.keys(metrics)) {
       const td = el('td', `numeric${key === metric ? ' selected' : ''}`, String(p[key]));
-      if (key === 'points' && metric === key) td.append(el('span', 'points-detail', `${p.goals} + ${p.assists}`));
       tr.append(td);
     }
     return tr;
@@ -69,11 +68,9 @@ function render() {
   $('#league-flag').className = `flag large-flag ${league.flag}`;
   $('#season').textContent = `Saison ${league.season || '—'}`;
   document.title = `${league.name} · Tore, Assists & Scorer — Fotstats`;
-  const timestamp = league.fetchedAt ? new Intl.DateTimeFormat('de-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(league.fetchedAt)) : null;
-  const stale = timestamp && Date.now() - Date.parse(league.fetchedAt) > 24 * 60 * 60 * 1000;
-  const ended = league.seasonEnd && Date.now() > Date.parse(league.seasonEnd);
-  $('#status').classList.toggle('warning', Boolean(stale || ended || league.refreshError));
-  $('#status').textContent = timestamp ? `Abgerufen am ${timestamp} Uhr (Schweizer Zeit).${league.refreshError ? ' Letzter Online-Abruf fehlgeschlagen; letzter verfügbarer Datenstand.' : stale ? ' Gespeicherter Datenstand ist älter als 24 Stunden.' : ' Letzter gespeicherter Datenstand.'}${ended ? ' Die Quelle liefert eine vergangene Saison.' : ''}` : 'Für diese Liga konnte noch kein Datenstand abgerufen werden.';
+  $('#status').hidden = !league.refreshError;
+  $('#status').classList.toggle('warning', Boolean(league.refreshError));
+  $('#status').textContent = league.refreshError ? 'Die Daten konnten zuletzt nicht aktualisiert werden.' : '';
   const source = $('#source'); source.replaceChildren();
   if (league.source) { const link = el('a', '', league.source.name); link.href = safeLink(league.source.url); link.target = '_blank'; link.rel = 'noopener noreferrer'; source.append(document.createTextNode('Quelle: '), link, document.createTextNode(` · Saison ${league.season}`)); }
   renderLeaders(); renderTable();
@@ -88,6 +85,7 @@ async function load() {
     for (const l of data.leagues) if (!Array.isArray(l.players) || l.players.some(p => !p.name || !p.team || !['goals', 'assists', 'points', 'matches'].every(k => Number.isInteger(p[k]) && p[k] >= 0) || p.points !== p.goals + p.assists)) throw new Error('Ungültige Spielerwerte');
     dataset = data; render();
   } catch {
+    $('#status').hidden = false;
     $('#status').textContent = dataset ? 'Der Datenstand konnte nicht neu geladen werden. Die bisherige Ansicht bleibt erhalten.' : 'Die Statistiken konnten nicht geladen werden. Bitte prüfe die Verbindung zum lokalen Server und versuche es erneut.';
     $('#status').classList.add('warning');
     if (!dataset) { $('#league-title').textContent = 'Daten nicht verfügbar'; $('#empty').hidden = false; }
@@ -95,6 +93,5 @@ async function load() {
 }
 window.addEventListener('hashchange', () => { if (dataset) render(); });
 document.querySelectorAll('[data-metric]').forEach(button => button.addEventListener('click', () => { metric = button.dataset.metric; if (dataset) renderTable(); }));
-$('#limit').addEventListener('change', event => { limit = event.target.value === 'all' ? Infinity : Number(event.target.value); if (dataset) renderTable(); });
 $('#reload').addEventListener('click', load);
 load();

@@ -5,14 +5,14 @@ import { ranking } from '../src/main/resources/public/rankings.js';
 import { parseEspnLeaders, parseSflPlayers } from '../scripts/providers.mjs';
 import { createServer } from '../scripts/serve.mjs';
 
-test('rankings use numeric totals, preserve ties and exclude zero values', () => {
+test('rankings number tied players consecutively, sort alphabetically and exclude zero values', () => {
   const players = [
     { name: 'B', goals: 6, assists: 4, points: 10 },
     { name: 'A', goals: 4, assists: 6, points: 10 },
     { name: 'C', goals: 8, assists: 1, points: 9 },
     { name: 'D', goals: 0, assists: 0, points: 0 }
   ];
-  assert.deepEqual(ranking(players, 'points').map(p => [p.name, p.rank]), [['A', 1], ['B', 1], ['C', 3]]);
+  assert.deepEqual(ranking(players, 'points').map(p => [p.name, p.rank]), [['A', 1], ['B', 2], ['C', 3]]);
   assert.equal(ranking(players, 'goals')[0].name, 'C');
   assert.equal(ranking(players, 'assists')[0].name, 'A');
   assert.equal(ranking(players, 'points', 1).length, 1);
