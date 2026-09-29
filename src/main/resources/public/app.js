@@ -1,7 +1,7 @@
 import { ranking } from './rankings.js';
 
 const $ = selector => document.querySelector(selector);
-const metrics = { goals: { title: 'Torschützen', card: 'Top-Torschütze', symbol: '◎' }, assists: { title: 'Assist-Rangliste', card: 'Top-Vorlagengeber', symbol: '↗' }, points: { title: 'Scorer-Rangliste', card: 'Top-Scorer', symbol: '✧' } };
+const metrics = { goals: { title: 'Torschützen', card: 'Top-Torschütze' }, assists: { title: 'Assist-Rangliste', card: 'Top-Vorlagengeber' }, points: { title: 'Scorer-Rangliste', card: 'Top-Scorer' } };
 let dataset, league, metric = 'points', limit = 10;
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -31,7 +31,7 @@ function renderLeaders() {
   $('#leaders').replaceChildren(...Object.entries(metrics).map(([key, config]) => {
     const leaders = ranking(league.players, key, Infinity), first = leaders[0];
     const card = el('article', `leader-card ${key}`);
-    const label = el('h3', 'card-label'); const symbol = el('span', 'card-symbol', config.symbol); symbol.setAttribute('aria-hidden', 'true'); label.append(symbol, document.createTextNode(config.card));
+    const label = el('h3', 'card-label', config.card);
     const main = el('div', 'leader-main'), identity = el('div');
     identity.append(el('p', 'leader-name', first?.name || 'Noch keine Werte'), el('p', 'leader-team', first?.team || ''));
     main.append(identity, el('span', 'leader-value', first ? String(first[key]) : '—'));
@@ -68,7 +68,7 @@ function render() {
   $('#league-country').textContent = league.country;
   $('#league-flag').className = `flag large-flag ${league.flag}`;
   $('#season').textContent = `Saison ${league.season || '—'}`;
-  document.title = `${league.name} · Tore, Assists & Scorer — Stats`;
+  document.title = `${league.name} · Tore, Assists & Scorer — Fotstats`;
   const timestamp = league.fetchedAt ? new Intl.DateTimeFormat('de-CH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(league.fetchedAt)) : null;
   const stale = timestamp && Date.now() - Date.parse(league.fetchedAt) > 24 * 60 * 60 * 1000;
   const ended = league.seasonEnd && Date.now() > Date.parse(league.seasonEnd);

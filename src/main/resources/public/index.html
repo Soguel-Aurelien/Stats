@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171824">
   <meta name="description" content="Echte Fussballstatistiken aus sechs Ligen. Entdecke die besten Torschützen, Vorlagengeber und Scorer.">
-  <title>Stats — Europas beste Scorer</title>
+  <title>Fotstats — Europas beste Scorer</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
   <script type="module" src="./app.js"></script>
@@ -13,14 +13,11 @@
 <body>
   <a class="skip-link" href="#main">Zum Inhalt</a>
   <header class="header"><div class="header-inner">
-    <a class="brand" href="./" aria-label="Stats Startseite"><img src="./favicon.svg" width="32" height="32" alt="">stats<span>.</span></a>
-    <span class="header-label">FUSSBALL IN ZAHLEN</span>
-    <span class="header-right"><span class="status-dot"></span> 6 Ligen. Ein Überblick.</span>
+    <a class="brand" href="./" aria-label="Fotstats Startseite"><img src="./favicon.svg" width="32" height="32" alt="">Fotstats</a>
   </div></header>
   <main id="main">
     <section class="intro">
-      <div><p class="eyebrow">DAS SPIEL HINTER DEN ZAHLEN</p><h1>Grosse Spieler.<br class="mobile-break"> Klare Zahlen<span>.</span></h1><p>Die besten Torschützen, Vorlagengeber und Scorer Europas.</p></div>
-      <div class="intro-mark" aria-hidden="true"><span>G</span><span>+</span><span>A</span></div>
+      <div><h1>Fussballstatistiken</h1><p>Tore, Assists und Scorerpunkte nach Liga.</p></div>
     </section>
     <nav id="league-nav" class="league-nav" aria-label="Liga auswählen"></nav>
     <section class="league-section" aria-labelledby="league-title">
@@ -28,8 +25,8 @@
       <p id="status" class="data-status" role="status" aria-live="polite">Der aktuelle Datenstand wird geladen.</p>
       <div id="leaders" class="leaders" aria-label="Spitzenreiter der Liga"></div>
       <section class="ranking-panel" aria-labelledby="ranking-title">
-        <div class="panel-top"><div><p class="eyebrow">DIE BESTEN DER LIGA</p><h2 id="ranking-title">Scorer-Rangliste</h2></div><label class="limit-label">Anzeigen <select id="limit"><option value="10">Top 10</option><option value="20">Top 20</option><option value="all">Alle</option></select></label></div>
-        <div class="ranking-controls"><div class="metric-nav" role="group" aria-label="Rangliste auswählen"><button type="button" data-metric="goals" aria-pressed="false">Tore</button><button type="button" data-metric="assists" aria-pressed="false">Assists</button><button type="button" data-metric="points" aria-pressed="true">Scorer <span>G + A</span></button></div><span id="ranking-count" class="ranking-count"></span></div>
+        <div class="panel-top"><div><h2 id="ranking-title">Scorer-Rangliste</h2></div><label class="limit-label">Anzeigen <select id="limit"><option value="10">Top 10</option><option value="20">Top 20</option><option value="all">Alle</option></select></label></div>
+        <div class="ranking-controls"><div class="metric-nav" role="group" aria-label="Rangliste auswählen"><button type="button" data-metric="goals" aria-pressed="false">Tore</button><button type="button" data-metric="assists" aria-pressed="false">Assists</button><button type="button" data-metric="points" aria-pressed="true">Scorer</button></div><span id="ranking-count" class="ranking-count"></span></div>
         <div class="table-scroll"><table><caption id="table-caption" class="sr-only">Spielerrangliste</caption><thead><tr><th scope="col" class="rank-column">#</th><th scope="col">Spieler / Verein</th><th scope="col" class="numeric games-column">Spiele</th><th scope="col" class="numeric" data-column="goals">Tore</th><th scope="col" class="numeric" data-column="assists">Assists</th><th scope="col" class="numeric" data-column="points">Scorer</th></tr></thead><tbody id="ranking-body"></tbody></table></div>
         <p id="empty" class="empty" hidden>Für diese Auswahl sind noch keine Statistiken verfügbar.</p>
         <div class="panel-footer"><span>Scorerpunkte = Tore + Assists</span><span>Gleiche Werte = gleicher Rang</span></div>
@@ -38,7 +35,7 @@
       <p class="data-note">Nur Ligaspiele. Assist-Wertungen können je nach Datenanbieter abweichen. Gespeicherter Datenstand, kein Live-Ticker.</p>
     </section>
     <noscript><p class="notice">Bitte aktiviere JavaScript, um Ligen und Ranglisten anzuzeigen.</p></noscript>
-    <footer class="footer"><span><strong>stats.</strong> Für die Liebe zum Spiel.</span><span>6 Ligen · Tore · Assists · Scorer</span></footer>
+    <footer class="footer"><span>Fotstats</span></footer>
   </main>
 </body>
 </html>

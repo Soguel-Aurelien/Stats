@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="13" fill="#8255ee"/><path d="M12 31V22h6v9zm9 0V13h6v18zm9 0V18h6v13z" fill="white"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <title>Fotstats Fussball</title>
+  <circle cx="24" cy="24" r="21" fill="#fff" stroke="#b091f4" stroke-width="2"/>
+  <g fill="none" stroke="#272536" stroke-width="1.5" stroke-linejoin="round">
+    <path d="m24 15 9 7-3 10H18l-3-10Z" fill="#272536"/>
+    <path d="M24 15V8m9 14 7-3M30 32l5 7m-17-7-5 7m2-17-7-3"/>
+    <path d="m17 5 7 3 7-3M43 15l-3 4 4 9M40 37l-5 2-5 5M18 44l-5-5-5-2M4 28l4-9-3-4"/>
+  </g>
+</svg>
