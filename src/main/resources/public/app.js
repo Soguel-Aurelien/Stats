@@ -14,10 +14,10 @@ function safeLink(url) {
   try { const parsed = new URL(url); if (parsed.protocol === 'https:') return parsed.href; } catch { /* No external link. */ }
   return '#';
 }
-function playerLink(player) {
-  const link = el('a', 'player-link'); link.href = safeLink(player.url); link.target = '_blank'; link.rel = 'noopener noreferrer';
-  link.append(playerName(player, 'player-name'), clubNames(player, 'player-team'));
-  return link;
+function playerIdentity(player) {
+  const identity = el('span', 'player-identity');
+  identity.append(playerName(player, 'player-name'), clubNames(player, 'player-team'));
+  return identity;
 }
 function badge(url, className, label) {
   const img = el('img', className);
@@ -78,7 +78,7 @@ function renderTable() {
   document.querySelectorAll('[data-column]').forEach(cell => { cell.classList.toggle('selected', cell.dataset.column === metric); cell.removeAttribute('aria-sort'); if (cell.dataset.column === metric) cell.setAttribute('aria-sort', 'descending'); });
   $('#ranking-body').replaceChildren(...rows.map(p => {
     const tr = el('tr'), rankCell = el('td'); rankCell.append(el('span', `rank${p.rank === 1 ? ' first' : ''}`, String(p.rank)));
-    const identity = el('th'); identity.scope = 'row'; identity.append(playerLink(p));
+    const identity = el('th'); identity.scope = 'row'; identity.append(playerIdentity(p));
     tr.append(rankCell, identity, el('td', 'numeric games-column', String(p.matches)));
     for (const key of Object.keys(metrics)) {
       const td = el('td', `numeric${key === metric ? ' selected' : ''}`, String(p[key]));
