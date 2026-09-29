@@ -21,7 +21,7 @@ function playerLink(player) {
 }
 function badge(url, className, label) {
   const img = el('img', className);
-  const allowed = ['a.espncdn.com', 'origins-common-assets.origins-digital.com', 'origins-sportlab-payload-s3.origins-digital.com'];
+  const allowed = ['a.espncdn.com', 'origins-sportlab-payload-s3.origins-digital.com'];
   try {
     const parsed = new URL(url);
     if (parsed.protocol !== 'https:' || !allowed.includes(parsed.hostname)) return null;
@@ -105,7 +105,6 @@ function render() {
   renderLeaders(); renderTable();
 }
 async function load() {
-  const button = $('#reload'); button.disabled = true;
   try {
     const response = await fetch('./data/stats.json', { cache: 'no-store' });
     if (!response.ok) throw new Error('Daten fehlen');
@@ -118,9 +117,8 @@ async function load() {
     $('#status').textContent = dataset ? 'Der Datenstand konnte nicht neu geladen werden. Die bisherige Ansicht bleibt erhalten.' : 'Die Statistiken konnten nicht geladen werden. Bitte prüfe die Verbindung zum lokalen Server und versuche es erneut.';
     $('#status').classList.add('warning');
     if (!dataset) { $('#league-title').textContent = 'Daten nicht verfügbar'; $('#empty').hidden = false; }
-  } finally { button.disabled = false; }
+  }
 }
 window.addEventListener('hashchange', () => { if (dataset) render(); });
 document.querySelectorAll('[data-metric]').forEach(button => button.addEventListener('click', () => { metric = button.dataset.metric; if (dataset) renderTable(); }));
-$('#reload').addEventListener('click', load);
 load();

@@ -16,7 +16,7 @@ export function createServer() {
   return http.createServer(async (req, res) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('Cache-Control', 'no-store');
-    res.setHeader('Content-Security-Policy', "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' https://a.espncdn.com https://origins-common-assets.origins-digital.com https://origins-sportlab-payload-s3.origins-digital.com; base-uri 'none'; frame-ancestors 'none'");
+    res.setHeader('Content-Security-Policy', "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' https://a.espncdn.com https://origins-sportlab-payload-s3.origins-digital.com; base-uri 'none'; frame-ancestors 'none'");
     if (!['GET', 'HEAD'].includes(req.method)) { res.writeHead(405, { Allow: 'GET, HEAD' }); return res.end(); }
     let pathname;
     try { pathname = new URL(req.url, 'http://localhost').pathname; }

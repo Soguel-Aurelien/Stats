@@ -7,4 +7,4 @@ object Main:
     val app = new StatsServer(host, port)
     sys.addShutdownHook(app.stop())
     app.start()
-    println(s"Stats läuft auf http://localhost:${app.port} (Demodaten)")
+    println(s"Fotstats läuft auf http://localhost:${app.port}")

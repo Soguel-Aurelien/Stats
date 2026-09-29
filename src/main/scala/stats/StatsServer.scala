@@ -31,7 +31,7 @@ final class StatsServer(host: String, requestedPort: Int):
     val headers = exchange.getResponseHeaders
     headers.set("Content-Type", contentType)
     headers.set("X-Content-Type-Options", "nosniff")
-    headers.set("Content-Security-Policy", "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' https://a.espncdn.com https://origins-common-assets.origins-digital.com https://origins-sportlab-payload-s3.origins-digital.com; base-uri 'none'; frame-ancestors 'none'")
+    headers.set("Content-Security-Policy", "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' https://a.espncdn.com https://origins-sportlab-payload-s3.origins-digital.com; base-uri 'none'; frame-ancestors 'none'")
     headers.set("Cache-Control", "no-store")
     if exchange.getRequestMethod == "HEAD" then exchange.sendResponseHeaders(status, -1)
     else
