@@ -10,6 +10,7 @@ const assets = new Map([
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/rankings.js', ['rankings.js', 'text/javascript; charset=utf-8']],
   ['/data/stats.json', ['data/stats.json', 'application/json; charset=utf-8']],
+  ['/data/standings.json', ['data/standings.json', 'application/json; charset=utf-8']],
   ['/favicon.svg', ['favicon.svg', 'image/svg+xml']]
 ]);
 export function createServer() {

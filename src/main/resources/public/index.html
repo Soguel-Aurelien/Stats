@@ -17,16 +17,28 @@
   </div></header>
   <main id="main">
     <section class="intro">
-      <div><h1>Fussballstatistiken</h1><p>Tore, Assists und Scorerpunkte nach Liga.</p></div>
+      <div><h1>Fussballstatistiken</h1><p>Ligatabellen, Tore, Assists und Scorerpunkte im Überblick.</p></div>
     </section>
     <nav id="league-nav" class="league-nav" aria-label="Liga auswählen"></nav>
     <section class="league-section" aria-labelledby="league-title">
       <div class="league-heading"><div class="league-identity"><span id="league-flag" class="flag large-flag" aria-hidden="true"></span><div><p id="league-country" class="eyebrow"></p><h2 id="league-title">Statistiken laden …</h2></div></div><span id="season" class="season">Saison —</span></div>
+      <div class="metric-nav league-menu" role="group" aria-label="Liga-Ansicht auswählen">
+        <button type="button" data-view="standings" aria-pressed="true">Tabelle</button>
+        <button type="button" data-view="goals" aria-pressed="false">Torschützen</button>
+        <button type="button" data-view="assists" aria-pressed="false">Assists</button>
+        <button type="button" data-view="points" aria-pressed="false">Scorer</button>
+      </div>
       <p id="status" class="data-status" role="status" aria-live="polite">Der aktuelle Datenstand wird geladen.</p>
-      <div id="leaders" class="leaders" aria-label="Spitzenreiter der Liga"></div>
-      <section class="ranking-panel" aria-labelledby="ranking-title">
-        <div class="panel-top"><h2 id="ranking-title">Scorer-Rangliste</h2></div>
-        <div class="ranking-controls"><div class="metric-nav" role="group" aria-label="Rangliste auswählen"><button type="button" data-metric="goals" aria-pressed="false">Tore</button><button type="button" data-metric="assists" aria-pressed="false">Assists</button><button type="button" data-metric="points" aria-pressed="true">Scorer</button></div><span id="ranking-count" class="ranking-count"></span></div>
+      <section id="standings-panel" class="ranking-panel" aria-labelledby="standings-title">
+        <div class="panel-top"><h2 id="standings-title">Ligatabelle</h2><span id="team-count" class="ranking-count"></span></div>
+        <p class="standings-notice">Testdaten: Platzierungen und Ergebnisse sind frei erfunden.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Ligatabelle, horizontal scrollbar"><table class="standings-table"><caption id="standings-caption" class="sr-only">Vollständige Ligatabelle mit Testdaten</caption><thead><tr><th scope="col" class="rank-column">#</th><th scope="col">Mannschaft</th><th scope="col" class="numeric"><abbr title="Spiele">Sp.</abbr></th><th scope="col" class="numeric"><abbr title="Siege">S</abbr></th><th scope="col" class="numeric"><abbr title="Unentschieden">U</abbr></th><th scope="col" class="numeric"><abbr title="Niederlagen">N</abbr></th><th scope="col" class="numeric score-column">Tore</th><th scope="col" class="numeric"><abbr title="Tordifferenz">TD</abbr></th><th scope="col" class="numeric selected"><abbr title="Punkte">Pkt.</abbr></th></tr></thead><tbody id="standings-body"></tbody></table></div>
+        <p id="standings-empty" class="empty" hidden>Für diese Liga ist noch keine Testtabelle hinterlegt.</p>
+        <p class="standings-legend">Sp. = Spiele · S = Siege · U = Unentschieden · N = Niederlagen · TD = Tordifferenz · Pkt. = Punkte</p>
+      </section>
+      <div id="leaders" class="leaders" aria-label="Spitzenreiter der Liga" hidden></div>
+      <section id="ranking-panel" class="ranking-panel" aria-labelledby="ranking-title" hidden>
+        <div class="panel-top"><h2 id="ranking-title">Scorer-Rangliste</h2><span id="ranking-count" class="ranking-count"></span></div>
         <div class="table-scroll"><table><caption id="table-caption" class="sr-only">Spielerrangliste</caption><thead><tr><th scope="col" class="rank-column">#</th><th scope="col">Spieler / Verein</th><th scope="col" class="numeric games-column">Spiele</th><th scope="col" class="numeric" data-column="goals">Tore</th><th scope="col" class="numeric" data-column="assists">Assists</th><th scope="col" class="numeric" data-column="points">Scorer</th></tr></thead><tbody id="ranking-body"></tbody></table></div>
         <p id="empty" class="empty" hidden>Für diese Auswahl sind noch keine Statistiken verfügbar.</p>
       </section>

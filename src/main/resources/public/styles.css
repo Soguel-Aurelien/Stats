@@ -734,3 +734,64 @@ tbody th {
 .leader-value {
   flex-shrink:0
 }
+
+.league-menu {
+  width:fit-content;
+  max-width:100%;
+  margin:24px 0;
+  overflow-x:auto
+}
+
+.league-menu button {
+  white-space:nowrap;
+  min-height:42px
+}
+
+.standings-notice {
+  margin:0;
+  padding:0 27px 20px;
+  font-size:12px;
+  line-height:1.6;
+  color:#756880
+}
+
+.standings-table {
+  min-width:790px
+}
+
+.standings-table th.numeric {
+  width:72px
+}
+
+.standings-table th.score-column {
+  width:90px
+}
+
+.standings-table th.rank-column {
+  width:65px
+}
+
+.standings-table th,.standings-table td {
+  padding-inline:15px
+}
+
+.standings-table .player-name {
+  min-width:180px
+}
+
+.standings-table abbr {
+  text-decoration:none
+}
+
+.standings-legend {
+  padding:16px 24px;
+  margin:0;
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.7
+}
+
+@media(max-width:650px) {
+  .standings-notice { padding-inline:17px; font-size:11px }
+  .standings-legend { padding-inline:17px }
+}

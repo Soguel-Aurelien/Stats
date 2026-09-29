@@ -68,7 +68,7 @@ test('HTTP serves modules and data, rejects writes and private paths', async t =
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   t.after(() => new Promise(resolve => server.close(resolve)));
   const base = `http://127.0.0.1:${server.address().port}`;
-  for (const path of ['/', '/styles.css', '/app.js', '/rankings.js', '/data/stats.json', '/favicon.svg']) {
+  for (const path of ['/', '/styles.css', '/app.js', '/rankings.js', '/data/stats.json', '/data/standings.json', '/favicon.svg']) {
     const response = await fetch(base + path);
     assert.equal(response.status, 200, path);
     if (path.endsWith('.js')) assert.match(response.headers.get('content-type'), /javascript/);
@@ -78,4 +78,30 @@ test('HTTP serves modules and data, rejects writes and private paths', async t =
   const head = await fetch(base, { method: 'HEAD' });
   assert.equal(head.status, 200); assert.equal(await head.text(), '');
   assert.equal((await fetch(base, { method: 'POST' })).status, 405);
+});
+
+test('test tables include every club and have consistent, correctly ordered counters', async () => {
+  const data = JSON.parse(await readFile(new URL('../src/main/resources/public/data/stats.json', import.meta.url)));
+  const tables = JSON.parse(await readFile(new URL('../src/main/resources/public/data/standings.json', import.meta.url)));
+  const expected = { 'eng.1': 20, 'ger.1': 18, 'ita.1': 20, 'esp.1': 20, 'fra.1': 18, 'sui.1': 12 };
+  assert.equal(tables.mode, 'test');
+  assert.equal(tables.leagues.length, 6);
+  assert.equal(new Set(tables.leagues.map(l => l.id)).size, 6);
+  for (const league of tables.leagues) {
+    assert.equal(league.teams.length, expected[league.id], league.id);
+    const saved = data.leagues.find(l => l.id === league.id);
+    assert.equal(league.season, saved.season);
+    assert.deepEqual(new Set(league.teams.map(t => t.name)), new Set(saved.players.flatMap(p => p.clubs.map(c => c.name))));
+    for (const team of league.teams) {
+      assert.equal(team.played, team.won + team.drawn + team.lost);
+      assert.equal(team.points, team.won * 3 + team.drawn);
+      for (const key of ['played', 'won', 'drawn', 'lost', 'points', 'goalsFor', 'goalsAgainst']) assert(Number.isInteger(team[key]) && team[key] >= 0);
+    }
+    const sum = key => league.teams.reduce((total, team) => total + team[key], 0);
+    assert.equal(sum('won'), sum('lost'));
+    assert.equal(sum('goalsFor'), sum('goalsAgainst'));
+    assert.equal(sum('drawn') % 2, 0);
+    const sorted = league.teams.slice().sort((a, b) => b.points - a.points || (b.goalsFor - b.goalsAgainst) - (a.goalsFor - a.goalsAgainst) || b.goalsFor - a.goalsFor || a.name.localeCompare(b.name, 'de'));
+    assert.deepEqual(league.teams, sorted);
+  }
 });

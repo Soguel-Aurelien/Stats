@@ -16,7 +16,8 @@ final class StatsServer(host: String, requestedPort: Int):
     "/favicon.svg" -> ("/public/favicon.svg", "image/svg+xml"),
     "/app.js" -> ("/public/app.js", "text/javascript; charset=utf-8"),
     "/rankings.js" -> ("/public/rankings.js", "text/javascript; charset=utf-8"),
-    "/data/stats.json" -> ("/public/data/stats.json", "application/json; charset=utf-8")
+    "/data/stats.json" -> ("/public/data/stats.json", "application/json; charset=utf-8"),
+    "/data/standings.json" -> ("/public/data/standings.json", "application/json; charset=utf-8")
   )
   server.setExecutor(executor)
   server.createContext("/", (exchange: HttpExchange) => handle(exchange))

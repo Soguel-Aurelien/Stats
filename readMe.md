@@ -4,6 +4,21 @@ Fussballstatistiken für Premier League, Bundesliga, Serie A, LaLiga, Ligue 1
 und die Schweizer Super League. Pro Rangliste werden maximal 15 Spieler
 angezeigt, durchgehend nummeriert. Bei gleichen Werten wird alphabetisch sortiert.
 
+Beim Öffnen oder Anklicken einer Liga erscheint zuerst die vollständige **Ligatabelle**.
+Das Menü darüber wechselt zwischen **Tabelle**, **Torschützen**, **Assists** und
+**Scorer** (Tore + Vorlagen). Auch ein erneuter Klick auf dieselbe Liga führt zur Tabelle.
+
+Die Tabellen sind ausdrücklich **Testdaten**: alle Mannschaften aus dem vorhandenen
+Vereinsbestand, aber erfundene Ergebnisse und Platzierungen. Sie enthalten Spiele,
+Siege, Unentschieden, Niederlagen, Tore, Tordifferenz und Punkte. Auf kleinen Bildschirmen
+ist die vollständige Tabelle horizontal scrollbar. Spielerstatistiken verwenden weiterhin
+den bisherigen gespeicherten Datenstand; Quelle und Abrufdatum stehen unter der Rangliste.
+
+Die Testtabellen liegen separat in `src/main/resources/public/data/standings.json`.
+Sie werden nicht beim Aktualisieren der Spielerstatistiken überschrieben. Für eine neue
+Testsaison können sie ohne Netzwerkzugriff aus dem gespeicherten Vereinsbestand neu
+erzeugt werden: `node scripts/create-test-standings.mjs`.
+
 ## Starten
 
 Mit Java und sbt:
