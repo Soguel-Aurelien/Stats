@@ -1,44 +1,83 @@
-# Stats — Tore & Assists
+# Stats — Tore, Assists & Scorer
 
-Eine einfache statische Fussball-Seite mit zwei Ranglisten:
+Eine responsive Fussballseite mit Premier League, Bundesliga, Serie A, LaLiga,
+Ligue 1 und Schweizer Super League. Die Navigation wechselt die Liga; Tore,
+Assists und Scorerpunkte lassen sich separat sortieren. Top 10, Top 20 und alle
+Spieler mit einem positiven Wert sind auswählbar. Gleichstände erhalten denselben
+Rang; innerhalb eines Gleichstands wird alphabetisch sortiert.
 
-- **Topscorer:** acht Spieler nach Toren sortiert.
-- **Assists:** dieselben acht Spieler nach Vorlagen sortiert.
+## Lokal starten
 
-Alle Namen, Vereine und Werte sind erfundene Testdaten. Es gibt keine API, keine externen Datenabfragen, kein JavaScript, kein Konto und keine Anmeldung.
-
-## Einfach öffnen
-
-`src/main/resources/public/index.html` im Browser öffnen. Die Seite funktioniert direkt als Datei und ohne Internet. Testdaten stehen in den beiden HTML-Tabellen und können dort geändert werden; die Reihenfolge ist manuell absteigend sortiert.
-
-## Optional über Scala starten
-
-Das bestehende Scala-Projekt enthält nur einen kleinen statischen Webserver. Voraussetzungen: JDK 21 und sbt. Beim ersten Build werden die Build-Abhängigkeiten heruntergeladen.
+Voraussetzung: Node.js 22 oder neuer. Keine npm-Pakete erforderlich.
 
 ```sh
-sbt run
+npm start
 ```
 
-Anschliessend http://localhost:8080 öffnen. Mit `Strg+C` stoppen. `PORT` (Standard `8080`) und `HOST` (Standard `0.0.0.0`) sind optional als Prozess-Umgebungsvariablen einstellbar. Eine `.env`-Datei wird nicht automatisch geladen.
+Unter Windows PowerShell bei blockierten npm-Skripten: `npm.cmd start`.
+Danach http://localhost:8080 öffnen. Mit Strg+C stoppen. Standardmässig nur lokal
+auf 127.0.0.1 erreichbar; `PORT` und `HOST` können als Umgebungsvariablen gesetzt werden.
 
-## Prüfen und paketieren
+## Echte Daten aktualisieren
+
+```sh
+npm run refresh-data
+```
+
+Unter Windows alternativ `npm.cmd run refresh-data` oder `node scripts/refresh-data.mjs`.
+Der Import benötigt Internet und speichert `src/main/resources/public/data/stats.json`.
+Danach im Browser „Datenstand neu laden“ drücken. Dieser Knopf liest die gespeicherte
+Datei erneut; er ruft die Anbieter nicht selbst ab. Es gibt keinen automatischen
+Hintergrundabruf und keinen Live-Ticker. Abrufzeit und Saison werden pro Liga angezeigt;
+Daten älter als 24 Stunden werden gekennzeichnet.
+
+- Die fünf grossen Ligen beziehen ihre Statistiken aus den öffentlichen ESPN-
+  Saisonranglisten. Der Import liest beide vollständigen Listen bis zu den Nullwerten,
+  kombiniert Vereinswechsel innerhalb derselben Liga und löst Spieler-/Vereinsnamen auf.
+- Die Schweizer Liga nutzt die öffentlich von sfl.ch geladenen SFL-Statistiken.
+  Tor- und Assistlisten werden vollständig und mit Pagination zusammengeführt, damit
+  auch Spieler ohne Tore berücksichtigt werden. Namen erscheinen in der Schreibweise
+  der SFL, teilweise mit abgekürztem Vornamen.
+- Scorerpunkte sind immer Tore + Assists. Nur Ligaspiele, keine Pokalspiele.
+- Beide Anbieter bestimmen die aktive Saison. Quelle, Saison und Abrufzeit stehen in
+  der Oberfläche. Assistdefinitionen können sich zwischen den Anbietern unterscheiden.
+- Bei einem Abruffehler bleibt der bisherige Stand der betroffenen Liga mit einem
+  Hinweis erhalten. Es werden keine fiktiven Ersatzwerte erzeugt. Öffentliche
+  Datenendpunkte können sich ändern und haben keine Verfügbarkeitsgarantie.
+
+## Prüfen
+
+```sh
+npm test
+```
+
+Prüft Sortierung, Gleichstände, Transfers, vollständige Datenimporte, Scorer-Summen,
+gespeicherte Daten sowie HTTP-Auslieferung und Pfadschutz.
+
+## Optional mit Scala
+
+Mit JDK 21 und sbt kann der bestehende Scala-Server weiter verwendet werden:
 
 ```sh
 sbt test stage
-java -cp "target/stage/*" stats.Main
+sbt run
 ```
 
-Die Tests prüfen die statischen Dateien, dass die entfernten API-Endpunkte nicht mehr verfügbar sind, den Pfadschutz sowie GET/HEAD und abgewiesene Schreibzugriffe.
+Die gespeicherten Statistiken werden als Ressourcen mitgebaut. Nach einem Datenimport
+Scala neu starten bzw. neu paketieren. JavaScript und JSON werden mit passenden
+Content-Types und einer auf lokale Ressourcen beschränkten CSP ausgeliefert.
 
-## Online bereitstellen
+## Bereitstellen
 
-Für statisches Hosting genügt der Inhalt von `src/main/resources/public/`: `index.html`, `styles.css` und `favicon.svg`. Ein Backend oder API-Schlüssel ist dafür nicht nötig.
+Für statisches Hosting den gesamten Inhalt von `src/main/resources/public/` inklusive
+`data/`, `app.js` und `rankings.js` bereitstellen. Direktes Öffnen als `file://` reicht
+wegen JavaScript-Modulen und JSON-Abruf nicht aus.
 
-Alternativ kann der statische Scala-Server mit Docker laufen:
+Alternativ ist der vorhandene Scala-Docker-Build nutzbar:
 
 ```sh
 docker build -t football-stats .
 docker run --rm -p 8080:8080 football-stats
 ```
 
-Die Webseite ist noch nicht öffentlich veröffentlicht. Der Docker-Build wurde hier nicht ausgeführt.
+Vor dem Build Daten aktualisieren. Die Webseite ist nicht öffentlich veröffentlicht.

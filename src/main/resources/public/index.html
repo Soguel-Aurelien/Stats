@@ -4,74 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171824">
-  <meta name="description" content="Torschützen und Vorlagengeber – eine einfache Fussball-Statistik mit fiktiven Testdaten.">
-  <title>Stats — Tore &amp; Assists</title>
+  <meta name="description" content="Echte Fussballstatistiken aus sechs Ligen. Entdecke die besten Torschützen, Vorlagengeber und Scorer.">
+  <title>Stats — Europas beste Scorer</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt</a>
-  <header class="header">
-    <div class="header-inner">
-      <a class="brand" href="./index.html" aria-label="Stats Startseite"><img src="./favicon.svg" width="32" height="32" alt="">stats<span>.</span></a>
-      <span class="header-label">FUSSBALL IN ZAHLEN</span>
-      <span class="test-badge"><span aria-hidden="true">●</span> Testdaten</span>
-    </div>
-  </header>
+  <header class="header"><div class="header-inner">
+    <a class="brand" href="./" aria-label="Stats Startseite"><img src="./favicon.svg" width="32" height="32" alt="">stats<span>.</span></a>
+    <span class="header-label">FUSSBALL IN ZAHLEN</span>
+    <span class="header-right"><span class="status-dot"></span> 6 Ligen. Ein Überblick.</span>
+  </div></header>
   <main id="main">
-    <div class="intro">
-      <p class="eyebrow">DIE ZAHLEN ZUM SPIEL</p>
-      <h1>Tore &amp; Assists<span>.</span></h1>
-      <p>Wer trifft am häufigsten? Wer legt die meisten Tore auf?</p>
-    </div>
-    <p class="notice"><span class="info-icon" aria-hidden="true">i</span> Alle Spieler, Vereine und Werte sind frei erfundene Testdaten.</p>
-    <div class="rankings">
-      <section class="panel" aria-labelledby="scorers-title">
-        <div class="panel-heading">
-          <span class="category-icon goals-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m12 7 5 4-2 6H9l-2-6 5-4Zm0-4v4m9 3-4 1m1 8-3-2m-9 2 3-2m-6-7 4 1"/></svg></span>
-          <div><h2 id="scorers-title">Topscorer</h2><p>Die besten Torschützen</p></div>
-          <span class="category-label">TORE</span>
-        </div>
-        <table>
-          <caption class="sr-only">Torschützen, absteigend nach erzielten Toren</caption>
-          <thead><tr><th scope="col">Platz</th><th scope="col">Spieler / Verein</th><th scope="col">Tore</th></tr></thead>
-          <tbody>
-            <tr class="leader"><td><span class="rank first">1</span></td><th scope="row"><span class="player">Luca Meier</span><span class="club">FC Bergstadt</span></th><td class="value">18</td></tr>
-            <tr><td><span class="rank">2</span></td><th scope="row"><span class="player">Noah Keller</span><span class="club">SC Seeblick</span></th><td class="value">15</td></tr>
-            <tr><td><span class="rank">3</span></td><th scope="row"><span class="player">Matteo Rossi</span><span class="club">FC Sonnenfeld</span></th><td class="value">13</td></tr>
-            <tr><td><span class="rank">4</span></td><th scope="row"><span class="player">Elias Weber</span><span class="club">SV Waldheim</span></th><td class="value">11</td></tr>
-            <tr><td><span class="rank">5</span></td><th scope="row"><span class="player">Leon Baumann</span><span class="club">FC Bergstadt</span></th><td class="value">9</td></tr>
-            <tr><td><span class="rank">6</span></td><th scope="row"><span class="player">Finn Huber</span><span class="club">SC Seeblick</span></th><td class="value">7</td></tr>
-            <tr><td><span class="rank">7</span></td><th scope="row"><span class="player">Ben Fischer</span><span class="club">FC Sonnenfeld</span></th><td class="value">5</td></tr>
-            <tr><td><span class="rank">8</span></td><th scope="row"><span class="player">Jan Sommer</span><span class="club">SV Waldheim</span></th><td class="value">3</td></tr>
-          </tbody>
-        </table>
-        <div class="panel-footer">8 Spieler <span>Fiktive Testwerte</span></div>
+    <section class="intro">
+      <div><p class="eyebrow">DAS SPIEL HINTER DEN ZAHLEN</p><h1>Grosse Spieler.<br class="mobile-break"> Klare Zahlen<span>.</span></h1><p>Die besten Torschützen, Vorlagengeber und Scorer Europas.</p></div>
+      <div class="intro-mark" aria-hidden="true"><span>G</span><span>+</span><span>A</span></div>
+    </section>
+    <nav id="league-nav" class="league-nav" aria-label="Liga auswählen"></nav>
+    <section class="league-section" aria-labelledby="league-title">
+      <div class="league-heading"><div class="league-identity"><span id="league-flag" class="flag large-flag" aria-hidden="true"></span><div><p id="league-country" class="eyebrow"></p><h2 id="league-title">Statistiken laden …</h2></div></div><span id="season" class="season">Saison —</span></div>
+      <p id="status" class="data-status" role="status" aria-live="polite">Der aktuelle Datenstand wird geladen.</p>
+      <div id="leaders" class="leaders" aria-label="Spitzenreiter der Liga"></div>
+      <section class="ranking-panel" aria-labelledby="ranking-title">
+        <div class="panel-top"><div><p class="eyebrow">DIE BESTEN DER LIGA</p><h2 id="ranking-title">Scorer-Rangliste</h2></div><label class="limit-label">Anzeigen <select id="limit"><option value="10">Top 10</option><option value="20">Top 20</option><option value="all">Alle</option></select></label></div>
+        <div class="ranking-controls"><div class="metric-nav" role="group" aria-label="Rangliste auswählen"><button type="button" data-metric="goals" aria-pressed="false">Tore</button><button type="button" data-metric="assists" aria-pressed="false">Assists</button><button type="button" data-metric="points" aria-pressed="true">Scorer <span>G + A</span></button></div><span id="ranking-count" class="ranking-count"></span></div>
+        <div class="table-scroll"><table><caption id="table-caption" class="sr-only">Spielerrangliste</caption><thead><tr><th scope="col" class="rank-column">#</th><th scope="col">Spieler / Verein</th><th scope="col" class="numeric games-column">Spiele</th><th scope="col" class="numeric" data-column="goals">Tore</th><th scope="col" class="numeric" data-column="assists">Assists</th><th scope="col" class="numeric" data-column="points">Scorer</th></tr></thead><tbody id="ranking-body"></tbody></table></div>
+        <p id="empty" class="empty" hidden>Für diese Auswahl sind noch keine Statistiken verfügbar.</p>
+        <div class="panel-footer"><span>Scorerpunkte = Tore + Assists</span><span>Gleiche Werte = gleicher Rang</span></div>
       </section>
-      <section class="panel assists-panel" aria-labelledby="assists-title">
-        <div class="panel-heading">
-          <span class="category-icon assists-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 17h6a6 6 0 0 0 6-6V5m-5 5 5-5 5 5"/><circle cx="5" cy="6" r="2"/></svg></span>
-          <div><h2 id="assists-title">Assists</h2><p>Die besten Vorlagengeber</p></div>
-          <span class="category-label">VORLAGEN</span>
-        </div>
-        <table>
-          <caption class="sr-only">Vorlagengeber, absteigend nach Torvorlagen</caption>
-          <thead><tr><th scope="col">Platz</th><th scope="col">Spieler / Verein</th><th scope="col">Assists</th></tr></thead>
-          <tbody>
-            <tr class="leader"><td><span class="rank first">1</span></td><th scope="row"><span class="player">Finn Huber</span><span class="club">SC Seeblick</span></th><td class="value">12</td></tr>
-            <tr><td><span class="rank">2</span></td><th scope="row"><span class="player">Jan Sommer</span><span class="club">SV Waldheim</span></th><td class="value">10</td></tr>
-            <tr><td><span class="rank">3</span></td><th scope="row"><span class="player">Ben Fischer</span><span class="club">FC Sonnenfeld</span></th><td class="value">9</td></tr>
-            <tr><td><span class="rank">4</span></td><th scope="row"><span class="player">Leon Baumann</span><span class="club">FC Bergstadt</span></th><td class="value">8</td></tr>
-            <tr><td><span class="rank">5</span></td><th scope="row"><span class="player">Noah Keller</span><span class="club">SC Seeblick</span></th><td class="value">6</td></tr>
-            <tr><td><span class="rank">6</span></td><th scope="row"><span class="player">Elias Weber</span><span class="club">SV Waldheim</span></th><td class="value">5</td></tr>
-            <tr><td><span class="rank">7</span></td><th scope="row"><span class="player">Luca Meier</span><span class="club">FC Bergstadt</span></th><td class="value">4</td></tr>
-            <tr><td><span class="rank">8</span></td><th scope="row"><span class="player">Matteo Rossi</span><span class="club">FC Sonnenfeld</span></th><td class="value">3</td></tr>
-          </tbody>
-        </table>
-        <div class="panel-footer">8 Spieler <span>Fiktive Testwerte</span></div>
-      </section>
-    </div>
-    <footer class="footer"><span><strong>stats.</strong> Für die Liebe zum Spiel.</span><span>Tore. Vorlagen. Fertig.</span></footer>
+      <div class="source-row"><p id="source"></p><button id="reload" class="reload" type="button"><span aria-hidden="true">↻</span> Datenstand neu laden</button></div>
+      <p class="data-note">Nur Ligaspiele. Assist-Wertungen können je nach Datenanbieter abweichen. Gespeicherter Datenstand, kein Live-Ticker.</p>
+    </section>
+    <noscript><p class="notice">Bitte aktiviere JavaScript, um Ligen und Ranglisten anzuzeigen.</p></noscript>
+    <footer class="footer"><span><strong>stats.</strong> Für die Liebe zum Spiel.</span><span>6 Ligen · Tore · Assists · Scorer</span></footer>
   </main>
 </body>
 </html>
