@@ -10,6 +10,7 @@ project/project/
 .bloop/
 .metals/
 .scala-build/
+.vscode/
 
 # Local configuration and operating system files
 .env
@@ -20,3 +21,6 @@ Thumbs.db
 # Local build tools and logs
 .tools/
 *.log
+
+# Generated data
+players.csv
