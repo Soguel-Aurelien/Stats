@@ -1,74 +1,54 @@
-﻿# Fotstats
+# Fotstats
 
-Kleine Scala-Konsolen-App: Liga auswählen, Ranglisten anzeigen, Spieler suchen und Tore oder Assists dauerhaft speichern.
+Fotstats ist eine Konsolen-App in Scala für Fussballstatistiken. Man kann eine Liga auswählen, Ranglisten anschauen und Tore oder Assists ändern. Scorerpunkte sind Tore plus Assists. Die Daten sind gespeichert, nicht live.
 
-## Auf einem anderen Rechner starten
+## Starten
 
-Benötigt werden **Java JDK 17 oder neuer**, unter Windows **PowerShell** und beim ersten Start eine **Internetverbindung**. Scala und sbt lädt das Startskript selbst herunter. VS Code ist optional.
+Unter Windows braucht man Java JDK 17 oder neuer und PowerShell. Beim ersten Start ist Internet nötig, weil Scala und sbt heruntergeladen werden.
 
-1. Den Projektordner kopieren oder eine ZIP-Datei zuerst vollständig entpacken. `players.csv`, `src`, `project`, `build.sbt` und `start.ps1` müssen enthalten sein.
-2. Den Ordner in VS Code öffnen und **Terminal → Neues Terminal** wählen. Alternativ PowerShell im Projektordner öffnen.
-3. Mit `java -version` prüfen, ob Java verfügbar ist. Falls der Befehl fehlt: ein JDK ab Version 17 installieren, dessen `bin`-Ordner zum `PATH` hinzufügen und ein neues Terminal öffnen.
-4. Im Ordner, in dem `start.ps1` liegt, diesen Befehl ausführen:
+1. Den Projektordner herunterladen und gegebenenfalls die ZIP entpacken.
+2. Den Ordner in VS Code öffnen und ein neues Terminal öffnen.
+3. Mit `java -version` prüfen, ob Java installiert ist. Falls der Befehl fehlt, zuerst ein JDK installieren und das Terminal neu öffnen.
+4. Im Projektordner starten:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
-Der erste Start kann wegen der Downloads einige Minuten dauern. Wenn das Menü mit „Auswahl:“ erscheint, ist die App bereit. Die Bedienung erfolgt vollständig im Terminal; es wird kein Browser benötigt.
+Der erste Start dauert etwas länger. Sobald das Menü erscheint, eine Zahl eingeben und mit Enter bestätigen. Falls `Create a new server?` erscheint, andere laufende Starts beenden und mit `y` bestätigen.
 
-Falls sbt nach `Create a new server?` fragt, zuerst andere laufende Starts dieses Projekts beenden und dann mit `y` bestätigen. Die App jeweils nur einmal mit derselben CSV öffnen, damit Änderungen sich nicht gegenseitig überschreiben.
+Mit installiertem sbt geht auch `sbt run`. Unter macOS/Linux braucht man Java und sbt; dort haben wir den Start noch nicht getestet.
 
-Auf macOS/Linux werden ein JDK und installiertes sbt benötigt. Im Projektordner mit `sbt run` starten. Dieser Startweg wurde hier nicht separat getestet.
+## Bedienung
 
-## Tests ausführen
+- 1: Liga wählen
+- 2: Torschützen anzeigen
+- 3: Assists anzeigen
+- 4: Scorer anzeigen
+- 5: Spielerwerte ändern
+- 6: Spieler oder Team suchen
+- 0: Beenden
 
-Unter Windows:
+Beispiel: `5`, `Haaland`, `1`, `10`, `3` eingeben, jeweils mit Enter. Haaland hat danach insgesamt 10 Tore, 3 Assists und 13 Scorerpunkte.
+
+Änderungen werden direkt in `players.csv` gespeichert und bleiben nach dem Neustart erhalten. Die Meldung „Gespeichert in …“ bestätigt das. Bei einem Speicherfehler bleiben die alten Werte erhalten. Nur eine App gleichzeitig mit derselben Datei öffnen.
+
+## Tests
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\start.ps1 test
 ```
 
-Mit installiertem sbt: `sbt test`. Es gibt neun Tests, unter anderem für Ranglisten, Suche, unveränderbare Updates, CSV-Dateien und dauerhaftes Speichern. Bei Erfolg meldet sbt `Passed: Total 9` und `Failed 0`.
+Mit sbt: `sbt test`. Die Tests prüfen unter anderem Ranglisten, Suche und Speichern.
 
-## Häufige Startprobleme
+## Aufbau
 
-| Meldung / Problem | Lösung |
-| --- | --- |
-| `start.ps1` nicht gefunden | In den entpackten Projektordner wechseln, in dem die Datei liegt. |
-| `java` nicht gefunden | JDK installieren, PATH prüfen und Terminal neu öffnen. |
-| Download fehlgeschlagen | Internetverbindung prüfen; Zugriff auf Maven Central muss erlaubt sein. |
-| `CSV-Datei nicht gefunden` | Prüfen, ob `players.csv` im Projektordner enthalten ist. |
-| Änderungen werden nicht gespeichert | Projekt in einen beschreibbaren Ordner entpacken und die Fehlermeldung in der Konsole prüfen. |
-| Alte Anzeige nach Codeänderungen | Laufende App mit `0` beenden und neu starten. |
+Der Code liegt in `src/main/scala/stats`:
 
-## Bedienung
+- `Main.scala`: Menü und Ein-/Ausgabe
+- `Model.scala`: Daten und Berechnungen
+- `Data.scala`: CSV lesen und speichern
 
-- 1: Liga wählen
-- 2 / 3 / 4: Tore / Assists / Scorer anzeigen
-- 5: Spieler suchen, Treffer auswählen und Werte ändern
-- 6: Spieler oder Team suchen
-- 0: Beenden
+Die Tests stehen in `src/test/scala/stats/StatsSuite.scala`. Das Modell arbeitet mit unveränderbaren Daten. Das Menü ist rekursiv.
 
-Demo: `5`, `Haaland`, `1`, `10`, `3`, jeweils mit Enter. Dabei sind 10 Tore und 3 Assists die neuen Gesamtwerte. Danach erscheinen 13 Scorerpunkte in der neuen Rangliste.
-
-Jede gültige Änderung wird sofort in `players.csv` im Projektordner gespeichert und bleibt nach einem Neustart erhalten. Die Konsole bestätigt das mit „Gespeichert in …“. Bei einem Speicherfehler bleiben die bisherigen Werte erhalten. Beim Start mit einem anderen CSV-Pfad wird genau diese Datei verwendet. Keine Dateien unter `target` bearbeiten; manuelle CSV-Änderungen vor dem App-Start speichern und die App danach neu starten.
-
-## Dateien
-
-- `src/main/scala/stats/Main.scala`: Konsolenmenü und Eingabe/Ausgabe.
-- `src/main/scala/stats/Model.scala`: unveränderbare Daten und reine Berechnungen.
-- `src/main/scala/stats/Data.scala`: CSV laden und prüfen.
-- `src/test/scala/stats/StatsSuite.scala`: Tests für Modell und CSV.
-- `players.csv`: 854 gespeicherte Spieler aus dem bisherigen Projekt; keine Live-Daten.
-- `build.sbt`, `project/build.properties`, `start.ps1`: Scala-Build und Start.
-
-`target` und `.tools` entstehen automatisch und sind in VS Code sichtbar, gehören aber nicht in Git. Diese Dateien niemals von Hand bearbeiten.
-
-Beim Weitergeben des Ordners können `target`, `project/target` und `.tools` weggelassen werden. Sie werden auf dem anderen Rechner neu erstellt. `project/build.properties` und `players.csv` unbedingt mitgeben. Zum Starten ist kein GitHub-Login nötig; für das Klonen eines privaten Repositorys braucht man hingegen Zugriff.
-
-## Bewertungskriterien
-
-Das Modell verwendet Case Classes, `copy`, unveränderbare `Vector`-Collections und reine Funktionen. `map`, `filter`, `sortBy` und `take` verarbeiten die Daten. Das Menü ist mit `@tailrec` rekursiv. Ein-/Ausgabe liegt ausserhalb des Modells.
-
-Vor der Abgabe: Tests und Demo ausführen, Änderungen prüfen, sinnvoll committen und pushen. Projekt, interessante Codestellen und Live-Demo selbst erklären können. Repository: https://github.com/Soguel-Aurelien/Stats.git
+Zum Weitergeben den Projektordner mit `src`, `project`, `players.csv`, `build.sbt` und `start.ps1` kopieren. `target`, `project/target` und `.tools` braucht man nicht mitzugeben. Diese Ordner werden automatisch erstellt. Spielerwerte nur in der `players.csv` im Projektordner ändern, nicht unter `target`.
