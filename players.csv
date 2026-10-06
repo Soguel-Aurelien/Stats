@@ -1,0 +1,855 @@
+leagueId,leagueName,playerName,team,goals,assists
+eng.1,Premier League,Erling Haaland,Manchester City,5,0
+eng.1,Premier League,Alexander Isak,Liverpool,4,0
+eng.1,Premier League,Pascal Gross,Brighton & Hove Albion,3,3
+eng.1,Premier League,Bruno Fernandes,Manchester United,3,1
+eng.1,Premier League,Kevin Schade,Brentford,3,0
+eng.1,Premier League,Morgan Rogers,Chelsea,3,1
+eng.1,Premier League,Marcus Tavernier,AFC Bournemouth,3,0
+eng.1,Premier League,Bukayo Saka,Arsenal,3,0
+eng.1,Premier League,Brian Brobbey,Sunderland,3,0
+eng.1,Premier League,Rayan Cherki,Manchester City,3,2
+eng.1,Premier League,João Pedro,Chelsea,3,3
+eng.1,Premier League,Leif Davis,Ipswich Town,2,1
+eng.1,Premier League,Antoine Semenyo,Manchester City,2,3
+eng.1,Premier League,Bryan Mbeumo,Manchester United,2,0
+eng.1,Premier League,Vitaly Janelt,Brentford,2,0
+eng.1,Premier League,Cole Palmer,Chelsea,2,2
+eng.1,Premier League,Kai Havertz,Arsenal,2,0
+eng.1,Premier League,Josh King,Fulham,2,0
+eng.1,Premier League,Tyrick Mitchell,Crystal Palace,2,0
+eng.1,Premier League,Dominic Calvert-Lewin,Leeds United,2,1
+eng.1,Premier League,Thierno Barry,Everton,2,0
+eng.1,Premier League,Mohamed Belloumi,Hull City,2,2
+eng.1,Premier League,Martin Ødegaard,Arsenal,2,0
+eng.1,Premier League,Jayden Bogle,Leeds United,2,0
+eng.1,Premier League,Charalambos Kostoulas,Brighton & Hove Albion,2,1
+eng.1,Premier League,Emersonn,Ipswich Town,2,1
+eng.1,Premier League,Joe Willock,Newcastle United,2,0
+eng.1,Premier League,Malick Yalcouyé,Brighton & Hove Albion,2,0
+eng.1,Premier League,Anthony Elanga,Newcastle United,2,0
+eng.1,Premier League,Jack Hinshelwood,Brighton & Hove Albion,2,0
+eng.1,Premier League,Jan Paul van Hecke,Tottenham Hotspur,1,0
+eng.1,Premier League,Marc Guéhi,Manchester City,1,1
+eng.1,Premier League,Morgan Gibbs-White,Nottingham Forest,1,2
+eng.1,Premier League,James Tarkowski,Everton,1,1
+eng.1,Premier League,Harvey Barnes,Newcastle United,1,2
+eng.1,Premier League,Lewis Hall,Newcastle United,1,1
+eng.1,Premier League,Anton Stach,Leeds United,1,0
+eng.1,Premier League,Kiernan Dewsbury-Hall,Everton,1,0
+eng.1,Premier League,Alex Scott,AFC Bournemouth,1,0
+eng.1,Premier League,Jay Da Silva,Coventry City,1,0
+eng.1,Premier League,Igor Thiago,Brentford,1,0
+eng.1,Premier League,Dominik Szoboszlai,Liverpool,1,0
+eng.1,Premier League,Yoane Wissa,Newcastle United,1,1
+eng.1,Premier League,Enzo Le Fée,Sunderland,1,1
+eng.1,Premier League,Luka Vuskovic,Brighton & Hove Albion,1,0
+eng.1,Premier League,Josko Gvardiol,Manchester City,1,2
+eng.1,Premier League,Gonzalo García,Fulham,1,0
+eng.1,Premier League,Maxim De Cuyper,Brighton & Hove Albion,1,2
+eng.1,Premier League,Semi Ajayi,Hull City,1,0
+eng.1,Premier League,Matheus Cunha,Manchester United,1,1
+eng.1,Premier League,Keane Lewis-Potter,Brentford,1,1
+eng.1,Premier League,Emiliano Buendía,Aston Villa,1,0
+eng.1,Premier League,Anan Khalaili,Crystal Palace,1,0
+eng.1,Premier League,Cody Gakpo,Liverpool,1,3
+eng.1,Premier League,Pedro Neto,Chelsea,1,0
+eng.1,Premier League,Dan Ndoye,Nottingham Forest,1,0
+eng.1,Premier League,Nilson Angulo,Sunderland,1,1
+eng.1,Premier League,Tyrique George,Everton,1,0
+eng.1,Premier League,Noah Okafor,Leeds United,1,0
+eng.1,Premier League,Jørgen Strand Larsen,Crystal Palace,1,0
+eng.1,Premier League,Michael Kayode,Brentford,1,0
+eng.1,Premier League,Jaidon Anthony,Brentford,1,0
+eng.1,Premier League,Víctor Muñoz,Liverpool,1,0
+eng.1,Premier League,Igor Jesus,Nottingham Forest,1,0
+eng.1,Premier League,Wilson Isidor,Sunderland,1,0
+eng.1,Premier League,Lewis Dunk,Brighton & Hove Albion,1,0
+eng.1,Premier League,Yasin Ayari,Brighton & Hove Albion,1,0
+eng.1,Premier League,Justin Kluivert,AFC Bournemouth,1,0
+eng.1,Premier League,Nicolas Jackson,Aston Villa,1,0
+eng.1,Premier League,Liam Delap,Nottingham Forest,1,0
+eng.1,Premier League,Romeo Lavia,Chelsea,1,0
+eng.1,Premier League,Nobel Mendy,Hull City,1,0
+eng.1,Premier League,César Palacios,Fulham,1,0
+eng.1,Premier League,Jack Clarke,Ipswich Town,1,0
+eng.1,Premier League,Alysson,Aston Villa,1,0
+eng.1,Premier League,Benjamin Sesko,Manchester United,1,0
+eng.1,Premier League,Mohamed-Ali Cho,Hull City,1,0
+eng.1,Premier League,Enzo Fernández,Manchester City / Chelsea,1,0
+eng.1,Premier League,Ainsley Maitland-Niles,Everton,1,0
+eng.1,Premier League,Conor Gallagher,Tottenham Hotspur,1,0
+eng.1,Premier League,Bruno Guimarães,Arsenal,1,0
+eng.1,Premier League,Chuba Akpom,Ipswich Town,1,0
+eng.1,Premier League,Jacob Ramsey,Newcastle United,1,0
+eng.1,Premier League,Zian Flemming,Ipswich Town,1,0
+eng.1,Premier League,Bazoumana Touré,Newcastle United,1,0
+eng.1,Premier League,Chema Andrés,Brighton & Hove Albion,1,1
+eng.1,Premier League,Johan Manzambi,Aston Villa,1,1
+eng.1,Premier League,Liam Millar,Hull City,1,0
+eng.1,Premier League,Ben Chilwell,Crystal Palace,1,0
+eng.1,Premier League,Fábio Carvalho,Brentford,1,0
+eng.1,Premier League,Tarik Muharemovic,Leeds United,0,1
+eng.1,Premier League,Carl Rushworth,Coventry City,0,1
+eng.1,Premier League,Murillo,Nottingham Forest,0,1
+eng.1,Premier League,Harrison Armstrong,Everton,0,1
+eng.1,Premier League,Ryan Giles,Hull City,0,1
+eng.1,Premier League,Boubacar Kamara,Aston Villa,0,1
+eng.1,Premier League,Daichi Kamada,Crystal Palace,0,3
+eng.1,Premier League,Oliver McBurnie,Hull City,0,1
+eng.1,Premier League,Regan Slater,Hull City,0,1
+eng.1,Premier League,Diego Gómez,Brighton & Hove Albion,0,2
+eng.1,Premier League,John McGinn,Aston Villa,0,2
+eng.1,Premier League,Evanilson,AFC Bournemouth,0,3
+eng.1,Premier League,Riccardo Calafiori,Arsenal,0,2
+eng.1,Premier League,Julio Enciso,Ipswich Town,0,2
+eng.1,Premier League,Declan Rice,Arsenal,0,2
+eng.1,Premier League,Timothy Castagne,Fulham,0,1
+eng.1,Premier League,Florian Wirtz,Liverpool,0,1
+eng.1,Premier League,Sasa Lukic,Ipswich Town,0,1
+eng.1,Premier League,Thomas Meunier,Sunderland,0,1
+eng.1,Premier League,Andy Robertson,Tottenham Hotspur,0,1
+eng.1,Premier League,Christos Tzolis,Arsenal,0,1
+eng.1,Premier League,Maxence Lacroix,Chelsea,0,1
+eng.1,Premier League,Kobbie Mainoo,Manchester United,0,1
+eng.1,Premier League,Fatawu Issahaku,Ipswich Town,0,1
+eng.1,Premier League,Mamadou Sangare,Brentford,0,1
+eng.1,Premier League,Yehor Yarmoliuk,Brentford,0,1
+eng.1,Premier League,Ryan Gravenberch,Liverpool,0,1
+eng.1,Premier League,Patrick Dorgu,Manchester United,0,1
+eng.1,Premier League,Hayden Hackney,Everton,0,1
+eng.1,Premier League,Luke Shaw,Manchester United,0,1
+eng.1,Premier League,Amar Dedic,Newcastle United,0,1
+eng.1,Premier League,Ben White,Arsenal,0,1
+eng.1,Premier League,Jorrel Hato,Chelsea,0,2
+eng.1,Premier League,Ao Tanaka,Leeds United,0,1
+eng.1,Premier League,Phil Foden,Manchester City,0,2
+eng.1,Premier League,Eddie Nketiah,Crystal Palace,0,1
+eng.1,Premier League,Mohammed Kudus,Tottenham Hotspur,0,1
+eng.1,Premier League,Lukas Nmecha,Leeds United,0,1
+eng.1,Premier League,Jannik Schuster,Brentford,0,1
+eng.1,Premier League,Iliman Ndiaye,Manchester City / Everton,0,1
+eng.1,Premier League,Georginio Rutter,Brighton & Hove Albion,0,1
+eng.1,Premier League,Habib Diarra,Sunderland,0,1
+eng.1,Premier League,William Osula,Newcastle United,0,1
+eng.1,Premier League,Nick Woltemade,Newcastle United,0,1
+ger.1,Bundesliga,Phillip Tietz,Mainz,4,0
+ger.1,Bundesliga,Yuito Suzuki,SC Freiburg,4,0
+ger.1,Bundesliga,Michael Olise,Bayern Munich,7,8
+ger.1,Bundesliga,Younes Ebnoutalib,Eintracht Frankfurt,4,1
+ger.1,Bundesliga,Patrik Schick,Bayer Leverkusen,4,1
+ger.1,Bundesliga,Igor Matanovic,SC Freiburg,3,1
+ger.1,Bundesliga,Jonathan Burkardt,Eintracht Frankfurt,3,1
+ger.1,Bundesliga,Niclas Füllkrug,Werder Bremen,3,0
+ger.1,Bundesliga,Harry Kane,Bayern Munich,3,1
+ger.1,Bundesliga,Michael Gregoritsch,FC Augsburg,3,0
+ger.1,Bundesliga,Maurice Krattenmacher,SV Elversberg,3,0
+ger.1,Bundesliga,Maximilian Eggestein,SC Freiburg,2,0
+ger.1,Bundesliga,Marco Grüll,Werder Bremen,2,3
+ger.1,Bundesliga,Yannick Engelhardt,SC Freiburg,2,0
+ger.1,Bundesliga,Josha Vagnoman,VfB Stuttgart,2,1
+ger.1,Bundesliga,Adam Daghim,TSG Hoffenheim,2,2
+ger.1,Bundesliga,Antonio Nusa,RB Leipzig,2,2
+ger.1,Bundesliga,Serhou Guirassy,Borussia Dortmund,2,2
+ger.1,Bundesliga,Can Uzun,Eintracht Frankfurt,2,0
+ger.1,Bundesliga,David Mokwa,SV Elversberg,2,0
+ger.1,Bundesliga,Hugo Bolin,Borussia Mönchengladbach,2,0
+ger.1,Bundesliga,Robin Fellhauer,FC Augsburg,2,0
+ger.1,Bundesliga,Sheraldo Becker,Mainz,2,3
+ger.1,Bundesliga,Adam Hlozek,TSG Hoffenheim,2,0
+ger.1,Bundesliga,Ridle Baku,RB Leipzig,2,0
+ger.1,Bundesliga,Felix Nmecha,Borussia Dortmund,2,0
+ger.1,Bundesliga,Christian Kofane,Bayer Leverkusen,2,0
+ger.1,Bundesliga,Tim Skarke,1. FC Union Berlin,2,0
+ger.1,Bundesliga,Thijs Dallinga,FC Cologne,2,0
+ger.1,Bundesliga,Fábio Silva,Borussia Dortmund,2,0
+ger.1,Bundesliga,Ibrahim Maza,Bayer Leverkusen,1,1
+ger.1,Bundesliga,Santiago Castaneda,SC Paderborn 07,1,0
+ger.1,Bundesliga,Nicolás Capaldo,Hamburg SV,1,0
+ger.1,Bundesliga,Willi Orbán,RB Leipzig,1,0
+ger.1,Bundesliga,Grischa Prömel,VfB Stuttgart,1,0
+ger.1,Bundesliga,Lukas Petkov,SV Elversberg,1,1
+ger.1,Bundesliga,Fabian Rieder,FC Augsburg,5,6
+ger.1,Bundesliga,Miguel Gutiérrez,Bayer Leverkusen,1,3
+ger.1,Bundesliga,Leon Avdullahu,TSG Hoffenheim,1,0
+ger.1,Bundesliga,Ozan Kabak,TSG Hoffenheim,1,0
+ger.1,Bundesliga,Maximilian Mittelstädt,VfB Stuttgart,1,1
+ger.1,Bundesliga,Calvin Brackelmann,FC Augsburg,1,0
+ger.1,Bundesliga,Phillipp Mwene,Mainz,1,1
+ger.1,Bundesliga,Felix Keidel,SV Elversberg,1,0
+ger.1,Bundesliga,Adil Aouchiche,Schalke 04,1,0
+ger.1,Bundesliga,Dayot Upamecano,Bayern Munich,1,0
+ger.1,Bundesliga,Aleksandar Pavlovic,Bayern Munich,1,1
+ger.1,Bundesliga,Derry Scherhant,SC Freiburg,1,2
+ger.1,Bundesliga,Facundo Medina,Bayer Leverkusen,1,0
+ger.1,Bundesliga,Ezequiel Fernández,Bayer Leverkusen,1,0
+ger.1,Bundesliga,Maximilian Beier,Borussia Dortmund,1,1
+ger.1,Bundesliga,Luis Díaz,Bayern Munich,1,0
+ger.1,Bundesliga,Cole Campbell,SV Elversberg,1,0
+ger.1,Bundesliga,Joe Scally,Borussia Mönchengladbach,1,0
+ger.1,Bundesliga,Christopher Nkunku,RB Leipzig,1,1
+ger.1,Bundesliga,Linton Maina,FC Cologne,1,1
+ger.1,Bundesliga,Emmanuel Latte Lath,1. FC Union Berlin,1,0
+ger.1,Bundesliga,Robin Gosens,Schalke 04,1,0
+ger.1,Bundesliga,Tidiam Gomis,RB Leipzig,1,2
+ger.1,Bundesliga,Eren Dinkci,Werder Bremen,1,0
+ger.1,Bundesliga,Stefano Marino,SC Paderborn 07,1,0
+ger.1,Bundesliga,Bilal El Khannouss,VfB Stuttgart,1,0
+ger.1,Bundesliga,Ermedin Demirovic,VfB Stuttgart,1,0
+ger.1,Bundesliga,Ragnar Ache,FC Cologne,1,0
+ger.1,Bundesliga,Ismael Saibari,Bayern Munich,1,2
+ger.1,Bundesliga,Isac Lidberg,Borussia Mönchengladbach,1,0
+ger.1,Bundesliga,Danny da Costa,Mainz,1,0
+ger.1,Bundesliga,Steffen Tigges,SC Paderborn 07,1,0
+ger.1,Bundesliga,Marius Bulter,FC Cologne,1,0
+ger.1,Bundesliga,Ransford-Yeboah Königsdörffer,Mainz,1,0
+ger.1,Bundesliga,Maximilian Wöber,Schalke 04,1,0
+ger.1,Bundesliga,Rodrigo Ribeiro,FC Augsburg,1,0
+ger.1,Bundesliga,Leopold Querfeld,1. FC Union Berlin,1,1
+ger.1,Bundesliga,Tim Lemperle,TSG Hoffenheim,1,0
+ger.1,Bundesliga,Said El Mala,FC Cologne,1,0
+ger.1,Bundesliga,Jamal Musiala,Bayern Munich,1,1
+ger.1,Bundesliga,Lennart Karl,Bayern Munich,1,0
+ger.1,Bundesliga,Alexis Claude-Maurice,FC Augsburg,1,1
+ger.1,Bundesliga,Yussuf Poulsen,Hamburg SV,1,0
+ger.1,Bundesliga,Dariusz Stalmach,Werder Bremen,1,0
+ger.1,Bundesliga,Rômulo,RB Leipzig,1,0
+ger.1,Bundesliga,Shuto Machino,Borussia Mönchengladbach,1,0
+ger.1,Bundesliga,Mitchell Weiser,Werder Bremen,1,0
+ger.1,Bundesliga,Anton Kade,FC Augsburg,1,1
+ger.1,Bundesliga,Rocco Reitz,RB Leipzig,1,0
+ger.1,Bundesliga,Florian Neuhaus,Borussia Mönchengladbach,1,0
+ger.1,Bundesliga,Eric Martel,Mainz,1,0
+ger.1,Bundesliga,Hennes Behrens,FC Augsburg,0,1
+ger.1,Bundesliga,Finn Jeltsch,VfB Stuttgart,0,1
+ger.1,Bundesliga,Jordy Makengo,SC Freiburg,0,2
+ger.1,Bundesliga,Lukas Finn Pinckert,SV Elversberg,0,1
+ger.1,Bundesliga,Tom Rothe,1. FC Union Berlin,0,1
+ger.1,Bundesliga,Edmond Tapsoba,Bayer Leverkusen,0,1
+ger.1,Bundesliga,Waldemar Anton,Borussia Dortmund,0,1
+ger.1,Bundesliga,Robin Koch,Eintracht Frankfurt,0,1
+ger.1,Bundesliga,Matthias Ginter,SC Freiburg,0,3
+ger.1,Bundesliga,Kaishu Sano,Mainz,0,2
+ger.1,Bundesliga,Chuki,Werder Bremen,0,2
+ger.1,Bundesliga,Vladimír Coufal,TSG Hoffenheim,0,2
+ger.1,Bundesliga,Laurin Curda,SC Paderborn 07,0,1
+ger.1,Bundesliga,Albert Grønbaek,Hamburg SV,0,2
+ger.1,Bundesliga,Ezechiel Banzuzi,RB Leipzig,0,1
+ger.1,Bundesliga,Han-Noah Massengo,FC Augsburg,0,1
+ger.1,Bundesliga,Elias Baum,Eintracht Frankfurt,0,1
+ger.1,Bundesliga,Jobe Bellingham,Borussia Dortmund,0,1
+ger.1,Bundesliga,Joshua Kimmich,Bayern Munich,0,2
+ger.1,Bundesliga,Anthony Caci,Mainz,0,1
+ger.1,Bundesliga,Jarell Quansah,Bayer Leverkusen,0,1
+ger.1,Bundesliga,Alphonso Davies,Bayern Munich,0,2
+ger.1,Bundesliga,Niklas Beste,SC Freiburg,0,1
+ger.1,Bundesliga,Lee Jae-Sung,Mainz,0,1
+ger.1,Bundesliga,Bambasé Conté,TSG Hoffenheim,0,2
+ger.1,Bundesliga,Ellyes Skhiri,FC Cologne,0,2
+ger.1,Bundesliga,Franck Honorat,Borussia Mönchengladbach,0,2
+ger.1,Bundesliga,Francis-Ikechukwu Onyeka,SV Elversberg,0,1
+ger.1,Bundesliga,Tom Bischof,Bayern Munich,0,2
+ger.1,Bundesliga,Marcel Sabitzer,Borussia Dortmund,0,1
+ger.1,Bundesliga,Seol Young-Woo,FC Augsburg,0,1
+ger.1,Bundesliga,Josip Juranovic,1. FC Union Berlin,0,2
+ger.1,Bundesliga,Ritsu Doan,Eintracht Frankfurt,0,1
+ger.1,Bundesliga,Lukas Ullrich,Borussia Mönchengladbach,0,2
+ger.1,Bundesliga,Konstantinos Karetsas,Borussia Dortmund,0,1
+ger.1,Bundesliga,Noah Darvich,SV Elversberg,0,1
+ger.1,Bundesliga,Malik Tillman,Bayer Leverkusen,0,1
+ger.1,Bundesliga,Max Moerstedt,TSG Hoffenheim,0,1
+ger.1,Bundesliga,Mario Götze,Eintracht Frankfurt,0,1
+ger.1,Bundesliga,Jonah Sticker,SC Paderborn 07,0,1
+ger.1,Bundesliga,Noel Futkeu,SV Elversberg,0,1
+ger.1,Bundesliga,Otto Ruoppi,Mainz,0,1
+ger.1,Bundesliga,Jeremiaha Maluze,Eintracht Frankfurt,0,1
+ger.1,Bundesliga,Junior Adamu,Schalke 04,0,1
+ger.1,Bundesliga,Hwang Hee-Chan,Schalke 04,0,1
+ger.1,Bundesliga,Andrija Maksimovic,RB Leipzig,0,1
+ita.1,Serie A,Donyell Malen,AS Roma,6,0
+ita.1,Serie A,Antonio Raimondo,Frosinone,4,0
+ita.1,Serie A,Gustavo Varela,Monza,4,0
+ita.1,Serie A,Lautaro Martínez,Internazionale,4,0
+ita.1,Serie A,Giorgi Kvernadze,Frosinone,3,1
+ita.1,Serie A,Davide Frattesi,Lazio,3,0
+ita.1,Serie A,Franco Mastantuono,Fiorentina,3,0
+ita.1,Serie A,Daniel Maldini,Cagliari,3,0
+ita.1,Serie A,Vasilije Adzic,Sassuolo,3,1
+ita.1,Serie A,Diego Moreira,AC Milan,3,0
+ita.1,Serie A,Bremer,Juventus,2,0
+ita.1,Serie A,Lassana Coulibaly,Lecce,2,1
+ita.1,Serie A,Jurgen Ekkelenkamp,Udinese,2,1
+ita.1,Serie A,Hassane Kamara,Udinese,2,1
+ita.1,Serie A,Rasmus Højlund,Napoli,2,0
+ita.1,Serie A,Mateo Pellegrino,Fiorentina,2,0
+ita.1,Serie A,Assane Diao,Como,2,1
+ita.1,Serie A,Manu Koné,AS Roma,2,0
+ita.1,Serie A,Anastasios Douvikas,Como,2,0
+ita.1,Serie A,Adrien Rabiot,AC Milan,2,2
+ita.1,Serie A,Pio Esposito,Internazionale,2,1
+ita.1,Serie A,Matìas Soulè,AS Roma,2,1
+ita.1,Serie A,Martin Baturina,Como,2,1
+ita.1,Serie A,Milutin Osmajic,Genoa,2,0
+ita.1,Serie A,Tiago Gabriel,Lecce,2,0
+ita.1,Serie A,Alphadjo Cissè,AC Milan,2,0
+ita.1,Serie A,Marcus Thuram,Internazionale,2,2
+ita.1,Serie A,Tijjani Noslin,Lazio,2,0
+ita.1,Serie A,José Romero,Parma,2,0
+ita.1,Serie A,Niccolò Pisilli,AS Roma,2,0
+ita.1,Serie A,Edon Zhegrova,Juventus,2,1
+ita.1,Serie A,Ché Adams,Torino,2,0
+ita.1,Serie A,Hakan Çalhanoglu,Internazionale,2,0
+ita.1,Serie A,Jacobo Ramón,Como,1,0
+ita.1,Serie A,Jesper Karlström,Udinese,1,0
+ita.1,Serie A,Nicolò Barella,Internazionale,1,1
+ita.1,Serie A,Mattia Zaccagni,Lazio,1,2
+ita.1,Serie A,Antoine Hainaut,Venezia,1,1
+ita.1,Serie A,Gonçalo Ramos,AC Milan,1,1
+ita.1,Serie A,Alessandro Romano,Cagliari,1,0
+ita.1,Serie A,Stanislav Lobotka,Napoli,1,0
+ita.1,Serie A,James Abankwah,Udinese,1,0
+ita.1,Serie A,Giacomo Calo,Frosinone,1,1
+ita.1,Serie A,Gabriele Bracaglia,Frosinone,1,1
+ita.1,Serie A,Nico Paz,Como,1,1
+ita.1,Serie A,Mario Hermoso,AS Roma,1,0
+ita.1,Serie A,Éderson,Atalanta,1,0
+ita.1,Serie A,Akor Adams,Venezia,1,0
+ita.1,Serie A,Josh Doig,Sassuolo,1,0
+ita.1,Serie A,John Yeboah,Venezia,1,0
+ita.1,Serie A,Ricardo Mangas,Monza,1,2
+ita.1,Serie A,Francisco Conceição,Juventus,1,1
+ita.1,Serie A,Federico Bernardeschi,Bologna,1,0
+ita.1,Serie A,Paul Mendy,Cagliari,1,0
+ita.1,Serie A,Roberto Piccoli,Bologna,1,0
+ita.1,Serie A,Piotr Zielinski,Internazionale,1,1
+ita.1,Serie A,Matteo Politano,Napoli,1,1
+ita.1,Serie A,Simone Lontani,Parma,1,0
+ita.1,Serie A,Kieron Bowie,Sassuolo,1,0
+ita.1,Serie A,Matteo Cancellieri,Lazio,1,0
+ita.1,Serie A,Kevin De Bruyne,Napoli,1,1
+ita.1,Serie A,Gianluca Scamacca,Atalanta,1,0
+ita.1,Serie A,Lazar Samardzic,Atalanta,1,0
+ita.1,Serie A,Nikola Krstovic,Atalanta,1,0
+ita.1,Serie A,Teun Koopmeiners,Juventus,1,1
+ita.1,Serie A,Pontus Almqvist,Parma,1,1
+ita.1,Serie A,Johan Vásquez,Genoa,1,0
+ita.1,Serie A,Pietro Comuzzo,Torino,1,0
+ita.1,Serie A,Álex Jiménez,Fiorentina,1,1
+ita.1,Serie A,Yann Bisseck,Internazionale,1,0
+ita.1,Serie A,Andrea Colpani,Monza,1,0
+ita.1,Serie A,Jay Robinson,Monza,1,0
+ita.1,Serie A,Nico González,Juventus,1,0
+ita.1,Serie A,Domenico Berardi,Sassuolo,1,0
+ita.1,Serie A,Giacomo Raspadori,Atalanta,1,0
+ita.1,Serie A,Idrissa Gueye,Udinese,1,0
+ita.1,Serie A,Rodrigo Mora,AS Roma,1,0
+ita.1,Serie A,Richie Sagrado,Venezia,1,0
+ita.1,Serie A,Ange-Yoan Bonny,Internazionale,1,0
+ita.1,Serie A,Rolando Mandragora,Torino / Fiorentina,1,1
+ita.1,Serie A,Billy Gilmour,Napoli,1,0
+ita.1,Serie A,Cristian Volpato,Sassuolo,1,0
+ita.1,Serie A,Carlos Augusto,Internazionale,1,1
+ita.1,Serie A,Jakub Piotrowski,Udinese,1,0
+ita.1,Serie A,Antonio Vergara,Napoli,1,1
+ita.1,Serie A,Kaiki,Como,1,0
+ita.1,Serie A,Artem Dovbyk,Bologna,1,0
+ita.1,Serie A,Sandro Kulenovic,Torino,1,0
+ita.1,Serie A,Albert Gudmundsson,Lazio / Fiorentina,1,0
+ita.1,Serie A,Sebastiano Esposito,Sassuolo,1,0
+ita.1,Serie A,Christian Pulisic,AC Milan,1,1
+ita.1,Serie A,Olaf Gorter,Lecce,1,0
+ita.1,Serie A,Cas Odenthal,Sassuolo,1,0
+ita.1,Serie A,Exequiel Zeballos,Monza,1,0
+ita.1,Serie A,Federico Gatti,Juventus,1,0
+ita.1,Serie A,Danilo Veiga,Lecce,0,1
+ita.1,Serie A,Radu Dragusin,Fiorentina,0,1
+ita.1,Serie A,Strahinja Pavlovic,AC Milan,0,1
+ita.1,Serie A,Michel Adopo,Cagliari,0,2
+ita.1,Serie A,Armand Laurienté,Sassuolo,0,1
+ita.1,Serie A,Amir Rrahmani,Napoli,0,1
+ita.1,Serie A,Giovanni Di Lorenzo,Napoli,0,1
+ita.1,Serie A,Randal Kolo Muani,Juventus,0,1
+ita.1,Serie A,Samuele Birindelli,Monza,0,2
+ita.1,Serie A,Zeki Çelik,Juventus,0,1
+ita.1,Serie A,Yan Couto,Como,0,1
+ita.1,Serie A,Manuel Akanji,Internazionale,0,1
+ita.1,Serie A,Paulo Dybala,AS Roma,0,4
+ita.1,Serie A,Cher Ndour,Fiorentina,0,1
+ita.1,Serie A,Nemanja Matic,Sassuolo,0,1
+ita.1,Serie A,Gianluca Mancini,AS Roma,0,2
+ita.1,Serie A,Patrizio Masini,Frosinone,0,1
+ita.1,Serie A,Samuel Chukwueze,AC Milan,0,2
+ita.1,Serie A,Anthony Oyono,Frosinone,0,1
+ita.1,Serie A,Fedde Leysen,Sassuolo,0,1
+ita.1,Serie A,El Bilal Toure,Parma,0,1
+ita.1,Serie A,Romano Schmid,Frosinone,0,3
+ita.1,Serie A,Alessio Cacciamani,Torino,0,1
+ita.1,Serie A,Nicolò Fagioli,Fiorentina,0,1
+ita.1,Serie A,Charles De Ketelaere,Atalanta,0,1
+ita.1,Serie A,Nuno Tavares,Lazio,0,2
+ita.1,Serie A,Lorenzo Colombo,Genoa,0,2
+ita.1,Serie A,Federico Dimarco,Internazionale,0,1
+ita.1,Serie A,Djibril Sow,Genoa,0,1
+ita.1,Serie A,Máximo Perrone,Como,0,1
+ita.1,Serie A,Unai Gómez,Udinese,0,1
+ita.1,Serie A,Mathis Mout,Monza,0,1
+ita.1,Serie A,Andy Diouf,Internazionale,0,3
+ita.1,Serie A,Álex Valle,Como,0,1
+ita.1,Serie A,Wesley,AS Roma,0,1
+ita.1,Serie A,Juan Miranda,Bologna,0,1
+ita.1,Serie A,Eray Cömert,Torino,0,1
+ita.1,Serie A,Gianluca Busio,Venezia,0,2
+ita.1,Serie A,Darryl Bakola,Sassuolo,0,1
+ita.1,Serie A,Gianluca Gaetano,Atalanta,0,1
+ita.1,Serie A,Gvidas Gineitis,Torino,0,1
+ita.1,Serie A,Ebenezer Akinsanmiro,Monza,0,1
+ita.1,Serie A,Keinan Davis,Udinese,0,2
+ita.1,Serie A,Ridgeciano Haps,Venezia,0,1
+ita.1,Serie A,Jacopo Fazzini,Cagliari,0,1
+ita.1,Serie A,Ivan Ilic,Lecce,0,2
+ita.1,Serie A,Nahuel Molina,AS Roma,0,1
+ita.1,Serie A,Alexis Saelemaekers,AC Milan,0,1
+ita.1,Serie A,Nesta Elphege,Parma,0,1
+ita.1,Serie A,Bayo Youssouf,Udinese,0,1
+ita.1,Serie A,Danilho Doekhi,Lazio,0,1
+ita.1,Serie A,Manuel Locatelli,Juventus,0,1
+ita.1,Serie A,Moise Kean,Como / Fiorentina,0,1
+ita.1,Serie A,Nicola Zalewski,Atalanta,0,1
+ita.1,Serie A,Rafik Belghali,Torino,0,1
+ita.1,Serie A,Beto,Fiorentina,0,1
+ita.1,Serie A,Boulaye Dia,Lazio,0,1
+ita.1,Serie A,Costantino Favasuli,Napoli,0,1
+esp.1,LaLiga,Raphinha,Barcelona,12,3
+esp.1,LaLiga,Kylian Mbappé,Real Madrid,7,2
+esp.1,LaLiga,Lamine Yamal,Barcelona,7,4
+esp.1,LaLiga,Sergio Camello,Rayo Vallecano,7,1
+esp.1,LaLiga,Roberto Fernández,Espanyol,6,0
+esp.1,LaLiga,Yassir Zabiri,Racing Santander,6,0
+esp.1,LaLiga,Pierre-Emerick Aubameyang,Deportivo,5,2
+esp.1,LaLiga,Ante Budimir,Osasuna,5,0
+esp.1,LaLiga,Fer Niño,Elche,5,0
+esp.1,LaLiga,Álex Baena,Atlético Madrid,4,1
+esp.1,LaLiga,Lucas Boyé,Alavés,4,0
+esp.1,LaLiga,Fermín López,Barcelona,4,2
+esp.1,LaLiga,Luka Sucic,Real Sociedad,3,0
+esp.1,LaLiga,Jude Bellingham,Real Madrid,3,2
+esp.1,LaLiga,Pape Gueye,Villarreal,3,0
+esp.1,LaLiga,Mariano Díaz,Alavés,3,3
+esp.1,LaLiga,Roger Brugué,Levante,3,0
+esp.1,LaLiga,Jonathan David,Atlético Madrid,3,1
+esp.1,LaLiga,Álvaro García,Rayo Vallecano,2,2
+esp.1,LaLiga,Miguel Sierra,Sevilla,2,0
+esp.1,LaLiga,Giuliano Simeone,Atlético Madrid,2,2
+esp.1,LaLiga,Lee Kang-In,Atlético Madrid,2,1
+esp.1,LaLiga,Cucho Hernández,Real Betis,2,1
+esp.1,LaLiga,Georges Mikautadze,Villarreal,2,1
+esp.1,LaLiga,Alberto Moleiro,Villarreal,2,3
+esp.1,LaLiga,Iván Romero,Levante,2,0
+esp.1,LaLiga,Rodrigo Riquelme,Real Betis,2,0
+esp.1,LaLiga,Karim Adeyemi,Barcelona,2,2
+esp.1,LaLiga,Alejandro Grimaldo,Atlético Madrid,2,1
+esp.1,LaLiga,Nicolas Pépé,Villarreal,2,0
+esp.1,LaLiga,Ander Barrenetxea,Real Sociedad,2,0
+esp.1,LaLiga,Robert Navarro,Athletic Club,2,0
+esp.1,LaLiga,Gerard Moreno,Villarreal,2,0
+esp.1,LaLiga,Pablo Durán,Celta Vigo,2,0
+esp.1,LaLiga,Carlos Espí,Real Madrid,2,0
+esp.1,LaLiga,Juan Iglesias,Sevilla,1,0
+esp.1,LaLiga,Ville Koski,Alavés,1,0
+esp.1,LaLiga,Nahuel Tenaglia,Alavés,1,0
+esp.1,LaLiga,Pablo Ibáñez,Alavés,1,0
+esp.1,LaLiga,Miguel Román,Celta Vigo,1,2
+esp.1,LaLiga,Germán Valera,Elche,1,0
+esp.1,LaLiga,Vinícius Júnior,Real Madrid,1,3
+esp.1,LaLiga,Chupete,Málaga,1,0
+esp.1,LaLiga,Martín Satriano,Getafe,1,1
+esp.1,LaLiga,Buba Sangaré,Elche,1,0
+esp.1,LaLiga,Enes Ünal,Getafe,1,0
+esp.1,LaLiga,Adrián de la Fuente,Levante,1,0
+esp.1,LaLiga,Oihan Sancet,Athletic Club,1,0
+esp.1,LaLiga,Sergio Canales,Racing Santander,1,0
+esp.1,LaLiga,Jon Ander Olasagasti,Levante,1,1
+esp.1,LaLiga,Pedri,Barcelona,1,1
+esp.1,LaLiga,Ilaix Moriba,Celta Vigo,1,0
+esp.1,LaLiga,Carlos Soler,Real Sociedad,1,2
+esp.1,LaLiga,Ademola Lookman,Atlético Madrid,1,0
+esp.1,LaLiga,Yangel Herrera,Real Sociedad,1,0
+esp.1,LaLiga,Luismi Cruz,Deportivo,1,1
+esp.1,LaLiga,Cala,Espanyol,1,0
+esp.1,LaLiga,Ferran Jutglà,Celta Vigo,1,0
+esp.1,LaLiga,Enzo Bardeli,Levante,1,1
+esp.1,LaLiga,Jon Guridi,Sevilla,1,0
+esp.1,LaLiga,Ayoze Pérez,Villarreal,1,2
+esp.1,LaLiga,Arda Güler,Real Madrid,1,2
+esp.1,LaLiga,Álex Berenguer,Athletic Club,1,1
+esp.1,LaLiga,Natan,Real Betis,1,0
+esp.1,LaLiga,Andrei Ratiu,Rayo Vallecano,1,0
+esp.1,LaLiga,Ramón Terrats,Getafe,1,0
+esp.1,LaLiga,Carlos Dotor,Málaga,1,0
+esp.1,LaLiga,Tyrhys Dolan,Espanyol,1,0
+esp.1,LaLiga,Marc Pubill,Atlético Madrid,1,0
+esp.1,LaLiga,Iñaki Williams,Athletic Club,1,2
+esp.1,LaLiga,Nico Williams,Athletic Club,1,0
+esp.1,LaLiga,Orri Óskarsson,Real Sociedad,1,0
+esp.1,LaLiga,Enrique Barja,Osasuna,1,0
+esp.1,LaLiga,Iago Aspas,Celta Vigo,1,0
+esp.1,LaLiga,Isaac Romero,Sevilla,1,1
+esp.1,LaLiga,Marcos Fernández,Espanyol,1,1
+esp.1,LaLiga,Chidera Ejuke,Sevilla,1,0
+esp.1,LaLiga,João Cancelo,Barcelona,1,0
+esp.1,LaLiga,Xavi Espart,Barcelona,1,2
+esp.1,LaLiga,Adrià Pedrosa,Rayo Vallecano,1,1
+esp.1,LaLiga,Marc Bartra,Real Betis,1,0
+esp.1,LaLiga,Aitor Paredes,Athletic Club,1,0
+esp.1,LaLiga,Maguette Gueye,Racing Santander,1,0
+esp.1,LaLiga,Youssouf Fofana,Sevilla,1,0
+esp.1,LaLiga,Ivan Azón,Getafe,1,1
+esp.1,LaLiga,Marc Aguado,Elche,1,0
+esp.1,LaLiga,Robin Le Normand,Atlético Madrid,1,0
+esp.1,LaLiga,Abde Ezzalzouli,Real Betis,1,0
+esp.1,LaLiga,Job Ochieng,Real Sociedad,1,3
+esp.1,LaLiga,Hugo Gonzalez,Celta Vigo,1,2
+esp.1,LaLiga,Facundo Buonanotte,Elche,1,0
+esp.1,LaLiga,Álvaro Carreras,Real Madrid,1,0
+esp.1,LaLiga,Abiel Osorio,Elche,1,0
+esp.1,LaLiga,Troy Parrott,Real Betis,1,1
+esp.1,LaLiga,Thomas Lemar,Elche,1,0
+esp.1,LaLiga,Luis Rioja,Valencia,1,0
+esp.1,LaLiga,Zakaria Eddahchouri,Deportivo,1,0
+esp.1,LaLiga,Andrés Martín,Racing Santander,1,0
+esp.1,LaLiga,Carl Starfelt,Celta Vigo,1,0
+esp.1,LaLiga,Pablo García,Racing Santander / Real Betis,2,0
+esp.1,LaLiga,Antonio Rüdiger,Real Madrid,1,0
+esp.1,LaLiga,Lucas Stassin,Sevilla,1,0
+esp.1,LaLiga,Peque,Sevilla,1,0
+esp.1,LaLiga,Umar Sadiq,Valencia,1,0
+esp.1,LaLiga,Mikel Rodriguez,Alavés,1,0
+esp.1,LaLiga,Diego Villares,Deportivo,1,0
+esp.1,LaLiga,Adrián Niño,Málaga,1,0
+esp.1,LaLiga,Gabriel Jesus,Barcelona,1,0
+esp.1,LaLiga,Aaron Mayol,Valencia,1,0
+esp.1,LaLiga,Oso,Sevilla,1,1
+esp.1,LaLiga,Sergio Martínez,Racing Santander,1,0
+esp.1,LaLiga,Renato Veiga,Villarreal,0,1
+esp.1,LaLiga,Víctor Chust,Elche,0,1
+esp.1,LaLiga,Antonio Sivera,Alavés,0,1
+esp.1,LaLiga,Gonzalo Villar,Elche,0,1
+esp.1,LaLiga,Javier Guerra,Valencia,0,1
+esp.1,LaLiga,Federico Valverde,Real Madrid,0,1
+esp.1,LaLiga,Javi Hernandez,Espanyol,0,4
+esp.1,LaLiga,Unai López,Rayo Vallecano,0,3
+esp.1,LaLiga,Dávid Hancko,Atlético Madrid,0,2
+esp.1,LaLiga,Iñigo Vicente,Racing Santander,0,2
+esp.1,LaLiga,Mario Soriano Carreno,Deportivo,0,2
+esp.1,LaLiga,Ángel Pérez,Alavés,0,3
+esp.1,LaLiga,Mikel Oyarzabal,Real Sociedad,0,2
+esp.1,LaLiga,Marcos Llorente,Atlético Madrid,0,1
+esp.1,LaLiga,José Antonio Morente,Elche,0,3
+esp.1,LaLiga,Robbie Ure,Sevilla,0,1
+esp.1,LaLiga,Raúl García,Osasuna,0,1
+esp.1,LaLiga,Nelson Deossa,Real Betis,0,1
+esp.1,LaLiga,Marc Bernal,Barcelona,0,2
+esp.1,LaLiga,Yan Diomande,Real Madrid,0,1
+esp.1,LaLiga,Dani Olmo,Barcelona,0,3
+esp.1,LaLiga,Hugo Duro,Valencia,0,1
+esp.1,LaLiga,Juan Cruz,Málaga,0,1
+esp.1,LaLiga,Lucas Cepeda,Elche,0,2
+esp.1,LaLiga,Lorenzo Amatucci,Deportivo,0,1
+esp.1,LaLiga,Omar El Hilali,Espanyol,0,1
+esp.1,LaLiga,Fran García,Real Betis,0,1
+esp.1,LaLiga,Andreas Christensen,Barcelona,0,1
+esp.1,LaLiga,Anthony Gordon,Barcelona,0,4
+esp.1,LaLiga,Iñigo Ruiz de Galarreta,Athletic Club,0,1
+esp.1,LaLiga,Bernardo Silva,Real Madrid,0,1
+esp.1,LaLiga,Jeremy Toljan,Levante,0,1
+esp.1,LaLiga,Asier Villalibre,Racing Santander,0,1
+esp.1,LaLiga,Ilias Akhomach,Villarreal,0,2
+esp.1,LaLiga,Yeremay Hernández,Deportivo,0,1
+esp.1,LaLiga,Carles Aleñá,Alavés,0,1
+esp.1,LaLiga,Marc Roca,Real Betis,0,1
+esp.1,LaLiga,Jorge de Frutos,Rayo Vallecano,0,1
+esp.1,LaLiga,Pablo Martínez,Málaga,0,1
+esp.1,LaLiga,Hugo Álvarez,Celta Vigo,0,2
+esp.1,LaLiga,Johnny Cardoso,Atlético Madrid,0,1
+esp.1,LaLiga,Giorgi Kochorashvili,Sevilla,0,1
+esp.1,LaLiga,Yeray,Athletic Club,0,1
+esp.1,LaLiga,Pablo Barrios,Atlético Madrid,0,1
+esp.1,LaLiga,Roy Revivo,Elche,0,2
+esp.1,LaLiga,Moi Gómez,Osasuna,0,1
+esp.1,LaLiga,Trent Alexander-Arnold,Real Madrid,0,1
+esp.1,LaLiga,Rafael Bauza,Espanyol,0,1
+esp.1,LaLiga,Felix Correia,Sevilla,0,1
+esp.1,LaLiga,Etta Eyong,Levante,0,1
+esp.1,LaLiga,Josan,Elche,0,1
+fra.1,Ligue 1,Amine Gouiri,Marseille,4,1
+fra.1,Ligue 1,Lassine Sinayoko,Paris FC,4,1
+fra.1,Ligue 1,Kamory Doumbia,Brest,4,1
+fra.1,Ligue 1,Paris Brunner,AS Monaco,4,0
+fra.1,Ligue 1,Ferran Torres,Paris Saint-Germain,4,0
+fra.1,Ligue 1,Marquinhos,Paris Saint-Germain,3,0
+fra.1,Ligue 1,Florian Thauvin,Lens,3,2
+fra.1,Ligue 1,Louis Mafouta,Le Mans,3,1
+fra.1,Ligue 1,Adil Bourabaa,Le Mans,3,2
+fra.1,Ligue 1,Esteban Lepaul,Stade Rennais,3,0
+fra.1,Ligue 1,Ernest Nuamah,Lyon,3,1
+fra.1,Ligue 1,Cameron Archer,AJ Auxerre,3,0
+fra.1,Ligue 1,Casper Tengstedt,Toulouse,3,0
+fra.1,Ligue 1,Zachary Athekame,Lyon,2,2
+fra.1,Ligue 1,Tiago Santos,Lille,2,0
+fra.1,Ligue 1,Thomas Jørgensen,Toulouse,2,1
+fra.1,Ligue 1,Gessime Yassine,Strasbourg,2,1
+fra.1,Ligue 1,Mbwana Samatta,Le Havre AC,2,0
+fra.1,Ligue 1,Samuel Amo-Ameyaw,Strasbourg,2,0
+fra.1,Ligue 1,Ayase Ueda,Lille,2,0
+fra.1,Ligue 1,Franjo Ivanovic,Lens,2,0
+fra.1,Ligue 1,Branco van den Boomen,Angers,1,1
+fra.1,Ligue 1,Pierre-Emile Højbjerg,Marseille,1,0
+fra.1,Ligue 1,Eric Dier,AS Monaco,1,1
+fra.1,Ligue 1,Lamine Sy,AJ Auxerre,1,0
+fra.1,Ligue 1,Felix Bacher,Lyon,1,0
+fra.1,Ligue 1,Ludovic Ajorque,Brest,1,0
+fra.1,Ligue 1,Christ Tapé,Toulouse,1,0
+fra.1,Ligue 1,Názinho,AS Monaco,1,1
+fra.1,Ligue 1,Valentin Rongier,Stade Rennais,1,0
+fra.1,Ligue 1,Vitinha,Paris Saint-Germain,1,1
+fra.1,Ligue 1,Amine Sbaï,Angers,1,1
+fra.1,Ligue 1,Jean-Victor Makengo,Lorient,1,0
+fra.1,Ligue 1,Przemyslaw Frankowski,Stade Rennais,1,1
+fra.1,Ligue 1,Ilan Kebbal,Paris FC,1,1
+fra.1,Ligue 1,Danny Namaso,AJ Auxerre,1,1
+fra.1,Ligue 1,Pathé Mboup,Brest,1,0
+fra.1,Ligue 1,Amine El Ouazzani,Angers,1,2
+fra.1,Ligue 1,Diogo Sousa,Strasbourg,1,1
+fra.1,Ligue 1,Abdallah Sima,Lens,1,1
+fra.1,Ligue 1,Matthieu Udol,Lens,1,0
+fra.1,Ligue 1,Corentin Tolisso,Lyon,1,2
+fra.1,Ligue 1,Adrien Thomasson,Stade Rennais,1,2
+fra.1,Ligue 1,Angel Gomes,Marseille,1,1
+fra.1,Ligue 1,Hákon Haraldsson,Lille,1,0
+fra.1,Ligue 1,Pablo Pagis,Paris FC,1,1
+fra.1,Ligue 1,Antoine Mille,Troyes,1,1
+fra.1,Ligue 1,Jacen Russell-Rowe,Toulouse,1,0
+fra.1,Ligue 1,Carlens Arcus,Angers,1,0
+fra.1,Ligue 1,Giovanni Reyna,Strasbourg,1,0
+fra.1,Ligue 1,Jacobo Ortega Conde,Strasbourg,1,1
+fra.1,Ligue 1,Dame Guèye,Le Mans,1,0
+fra.1,Ligue 1,Lucas Calodat,Le Mans,1,1
+fra.1,Ligue 1,Renaud Ripart,Troyes,1,0
+fra.1,Ligue 1,Josh Maja,Le Havre AC,1,0
+fra.1,Ligue 1,Ethan Mbappé,Lille,1,0
+fra.1,Ligue 1,Olivier Giroud,Lille,1,2
+fra.1,Ligue 1,Mamadou Koné,Lorient,1,0
+fra.1,Ligue 1,Prosper Peter,Angers,1,0
+fra.1,Ligue 1,Keyliane Abdallah,Marseille,1,0
+fra.1,Ligue 1,Harouna Djibirin,Angers,1,0
+fra.1,Ligue 1,Loïs Openda,Lyon,1,1
+fra.1,Ligue 1,Stanis Idumbo,AS Monaco,1,0
+fra.1,Ligue 1,Elye Wahi,Nice,1,0
+fra.1,Ligue 1,Remy Labeau Lascary,AJ Auxerre,1,0
+fra.1,Ligue 1,Lucas Maronnier,Troyes,1,0
+fra.1,Ligue 1,Sebastian Szymanski,Stade Rennais,1,1
+fra.1,Ligue 1,Dilane Bakwa,Lille,1,1
+fra.1,Ligue 1,Noah Nartey,Lyon,1,0
+fra.1,Ligue 1,Isak Jensen,Lorient,1,0
+fra.1,Ligue 1,Samir Chergui,Paris FC,1,0
+fra.1,Ligue 1,Pierre Ganiou,Lens,1,0
+fra.1,Ligue 1,Jeremy Le Douaron,Troyes,1,0
+fra.1,Ligue 1,Mohamed Amoura,Nice,1,0
+fra.1,Ligue 1,Ibrahima Baldé,Lorient,1,0
+fra.1,Ligue 1,Noah Mbamba,Lorient,1,0
+fra.1,Ligue 1,Rayan Fofana,Le Havre AC,1,0
+fra.1,Ligue 1,Habib Diallo,Le Mans,1,0
+fra.1,Ligue 1,Conrad Harder,Strasbourg,1,0
+fra.1,Ligue 1,Romain Del Castillo,Brest,1,0
+fra.1,Ligue 1,Malick Fofana,Lyon,1,0
+fra.1,Ligue 1,Vincent Marchetti,Paris FC,1,0
+fra.1,Ligue 1,Saud Abdulhamid,Lens,1,0
+fra.1,Ligue 1,Ousmane Camara,Angers,0,1
+fra.1,Ligue 1,Anis Ouzenadji,Troyes,0,1
+fra.1,Ligue 1,Arsène Kouassi,Lorient,0,1
+fra.1,Ligue 1,Cristian Cásseres Jr.,Toulouse,0,4
+fra.1,Ligue 1,Lamine Camara,AS Monaco,0,1
+fra.1,Ligue 1,Aleksandr Golovin,AS Monaco,0,2
+fra.1,Ligue 1,Joris Chotard,Brest,0,1
+fra.1,Ligue 1,Nabil Bentaleb,Lille,0,1
+fra.1,Ligue 1,Amine Harit,Marseille,0,1
+fra.1,Ligue 1,Gauthier Hein,Nice,0,1
+fra.1,Ligue 1,Maxime López,Paris FC,0,1
+fra.1,Ligue 1,Sebastian Nanasi,Strasbourg,0,2
+fra.1,Ligue 1,Désiré Doué,Paris Saint-Germain,0,1
+fra.1,Ligue 1,Fabián Ruiz,Paris Saint-Germain,0,2
+fra.1,Ligue 1,Khvicha Kvaratskhelia,Paris Saint-Germain,0,1
+fra.1,Ligue 1,Michal Skoras,Lens,0,1
+fra.1,Ligue 1,Pavel Sulc,Lyon,0,3
+fra.1,Ligue 1,Sofiane Diop,Nice,0,1
+fra.1,Ligue 1,Kandet Diawara,Troyes,0,1
+fra.1,Ligue 1,Romain Faivre,AJ Auxerre,0,1
+fra.1,Ligue 1,Panos Katseris,Lorient,0,3
+fra.1,Ligue 1,Sota Nakamura,Le Havre AC,0,1
+fra.1,Ligue 1,Mika Godts,Paris Saint-Germain,0,1
+fra.1,Ligue 1,Rayan Bamba,Le Mans,0,1
+fra.1,Ligue 1,Christ Makosso,AJ Auxerre,0,1
+fra.1,Ligue 1,Luca Koleosho,Paris FC,0,1
+fra.1,Ligue 1,Ruben Aguilar,Lens,0,1
+fra.1,Ligue 1,Hugo Magnetti,Brest,0,1
+fra.1,Ligue 1,Jean Vercruysse,Le Mans,0,1
+fra.1,Ligue 1,Lucas Bretelle,Le Mans,0,1
+fra.1,Ligue 1,Issa Soumaré,Stade Rennais,0,1
+fra.1,Ligue 1,Ousmane Dembélé,Paris Saint-Germain,0,1
+fra.1,Ligue 1,Matthis Abline,AS Monaco,0,1
+fra.1,Ligue 1,Mama Baldé,Brest,0,1
+fra.1,Ligue 1,Rayan Mandengue,AJ Auxerre,0,1
+fra.1,Ligue 1,Zabi Gueu,Paris FC,0,1
+fra.1,Ligue 1,Dário Essugo,Strasbourg,0,1
+fra.1,Ligue 1,Yann Gboho,Toulouse,0,1
+fra.1,Ligue 1,Mamady Diambou,Brest,0,1
+fra.1,Ligue 1,Fodé Doucouré,Le Havre AC,0,1
+fra.1,Ligue 1,Maurits Kjaergaard,Lille,0,2
+fra.1,Ligue 1,Jordan Teze,AS Monaco,0,1
+sui.1,Super League,S. Essende,BSC Young Boys,10,3
+sui.1,Super League,Ž. Celar,FC Basel 1893,6,1
+sui.1,Super League,W. Boteli,FC Sion,6,4
+sui.1,Super League,U. Emmanuel,FC Zürich,4,2
+sui.1,Super League,D. Mikołajewski,FC Luzern,4,3
+sui.1,Super League,C. Fassnacht,BSC Young Boys,4,1
+sui.1,Super League,M. Monsberger,FC Vaduz,4,1
+sui.1,Super League,J. Cabrera,FC Vaduz,4,0
+sui.1,Super League,K. Mutandwa,Servette FC,3,0
+sui.1,Super League,S. Bengondo,Grasshopper Club Zürich,3,0
+sui.1,Super League,A. Balde,FC St.Gallen 1879,3,1
+sui.1,Super League,X. Shaqiri,FC Basel 1893,3,1
+sui.1,Super League,A. Sow,FC Basel 1893,3,4
+sui.1,Super League,P. Kény,FC Zürich,3,1
+sui.1,Super League,H. Delcroix,FC Lugano,3,1
+sui.1,Super League,Y. Cimignani,FC Lugano,3,0
+sui.1,Super League,E. Pihlström,FC Lugano,3,0
+sui.1,Super League,D. Moncada,FC Lugano,3,1
+sui.1,Super League,A. Cigaņiks,FC Luzern,3,0
+sui.1,Super League,M. Di Giusto,FC Luzern,3,2
+sui.1,Super League,J. Lukembila,FC Sion,3,4
+sui.1,Super League,D. Rrudhani,FC Sion,3,1
+sui.1,Super League,B. Labeau,FC Thun,3,0
+sui.1,Super League,J. Monteiro,BSC Young Boys,3,1
+sui.1,Super League,A. Sanches,BSC Young Boys,3,4
+sui.1,Super League,M. Cocic,FC Vaduz,3,0
+sui.1,Super League,L. Dalipi,FC Vaduz,3,8
+sui.1,Super League,M. Lambourde,Servette FC,2,0
+sui.1,Super League,A. Abrashi,Grasshopper Club Zürich,2,1
+sui.1,Super League,Lee Young-Jun,Grasshopper Club Zürich,2,1
+sui.1,Super League,S. Krasniqi,Grasshopper Club Zürich,2,2
+sui.1,Super League,L. Görtler,FC St.Gallen 1879,2,1
+sui.1,Super League,L. Daschner,FC St.Gallen 1879,2,1
+sui.1,Super League,A. Hunziker,FC St.Gallen 1879,2,0
+sui.1,Super League,E. Owusu,FC St.Gallen 1879,2,1
+sui.1,Super League,N. Scherrer,FC St.Gallen 1879,2,0
+sui.1,Super League,K. Olaigbe,FC Basel 1893,2,4
+sui.1,Super League,F. Mollet,FC Lausanne-Sport,2,1
+sui.1,Super League,L. Kamberi,FC Zürich,2,0
+sui.1,Super League,A. Ajeti,FC Lugano,2,0
+sui.1,Super League,K. Behrens,FC Lugano,2,1
+sui.1,Super League,Daniel Dos Santos,FC Lugano,2,0
+sui.1,Super League,B. Castro,FC Lugano,2,2
+sui.1,Super League,O. Kabwit,FC Luzern,2,1
+sui.1,Super League,I. Chouaref,FC Sion,2,2
+sui.1,Super League,R. Nivokazi,FC Sion,2,0
+sui.1,Super League,F. Surdez,FC Sion,2,2
+sui.1,Super League,N. Bürgy,FC Thun,2,0
+sui.1,Super League,N. Reichmuth,FC Thun,2,1
+sui.1,Super League,F. Saiz,FC Thun,2,1
+sui.1,Super League,F. Dursun,FC Thun,2,4
+sui.1,Super League,L. Blum,BSC Young Boys,2,3
+sui.1,Super League,K. Sène,BSC Young Boys,2,2
+sui.1,Super League,A. Virginius,BSC Young Boys,2,0
+sui.1,Super League,D. Schwizer,FC Vaduz,2,0
+sui.1,Super League,J. Stark,FC Vaduz,2,1
+sui.1,Super League,M. Stevanović,Servette FC,1,0
+sui.1,Super League,S. Mráz,Servette FC,1,0
+sui.1,Super League,M. Burch,Servette FC,1,0
+sui.1,Super League,D. Fofana,Servette FC,1,0
+sui.1,Super League,T. Allix,Servette FC,1,0
+sui.1,Super League,T. Ouattara,Servette FC,1,0
+sui.1,Super League,G. Morandi,Grasshopper Club Zürich,1,0
+sui.1,Super League,L. Plange,Grasshopper Club Zürich,1,0
+sui.1,Super League,B. Pllana,Grasshopper Club Zürich,1,0
+sui.1,Super League,N. Muci,Grasshopper Club Zürich,1,1
+sui.1,Super League,C. Witzig,FC St.Gallen 1879,1,0
+sui.1,Super League,C. Boukhalfa,FC St.Gallen 1879,1,1
+sui.1,Super League,L. Frokaj,FC St.Gallen 1879,1,0
+sui.1,Super League,P. Otele,FC Basel 1893,1,0
+sui.1,Super League,Metinho,FC Basel 1893,1,1
+sui.1,Super League,V. Akpe,FC Basel 1893,1,1
+sui.1,Super League,N. Butler-Oyedeji,FC Lausanne-Sport,1,0
+sui.1,Super League,Omar Janneh,FC Lausanne-Sport,1,1
+sui.1,Super League,E. Molebe,FC Lausanne-Sport,1,0
+sui.1,Super League,L. Nene,FC Lausanne-Sport,1,0
+sui.1,Super League,I. Bah Mendes,FC Lausanne-Sport,1,0
+sui.1,Super League,V. Berisha,FC Zürich,1,1
+sui.1,Super League,B. Krasniqi,FC Zürich,1,1
+sui.1,Super League,K. Spadanuda,FC Zürich,1,0
+sui.1,Super League,M. Reichmuth,FC Zürich,1,1
+sui.1,Super League,M. Bangoura,FC Zürich,1,0
+sui.1,Super League,R. Steffen,FC Lugano,1,2
+sui.1,Super League,L. Mai,FC Lugano,1,2
+sui.1,Super League,A. Papadopoulos,FC Lugano,1,3
+sui.1,Super League,U. Bislimi,FC Lugano,1,0
+sui.1,Super League,A. Kendouci,FC Lugano,1,2
+sui.1,Super League,B. Karimov,FC Lugano,1,1
+sui.1,Super League,S. Knezevic,FC Luzern,1,0
+sui.1,Super League,T. Owusu,FC Luzern,1,1
+sui.1,Super League,N. Toggenburger,FC Luzern,1,0
+sui.1,Super League,L. Villiger,FC Luzern,1,0
+sui.1,Super League,R. Fernandes,FC Luzern,1,1
+sui.1,Super League,A. Kabacalman,FC Sion,1,0
+sui.1,Super League,J. Kronig,FC Sion,1,0
+sui.1,Super League,T. Berdayes,FC Sion,1,1
+sui.1,Super League,N. Sow,FC Sion,1,0
+sui.1,Super League,F. Sylla,FC Sion,1,0
+sui.1,Super League,J. Bamert,FC Thun,1,0
+sui.1,Super League,L. Stewart,FC Thun,1,0
+sui.1,Super League,N. Maier,FC Thun,1,0
+sui.1,Super League,F. Fehr,FC Thun,1,1
+sui.1,Super League,E. Fernandes,BSC Young Boys,1,2
+sui.1,Super League,C. Zesiger,BSC Young Boys,1,0
+sui.1,Super League,A. Gigović,BSC Young Boys,1,0
+sui.1,Super League,K. Imeri,BSC Young Boys,1,2
+sui.1,Super League,D. Pech,BSC Young Boys,1,1
+sui.1,Super League,A. Grgic,FC Lugano,0,4
+sui.1,Super League,C. Okoroji,FC St.Gallen 1879,0,3
+sui.1,Super League,N. Hasler,FC Vaduz,0,3
+sui.1,Super League,T. Cognat,Servette FC,0,2
+sui.1,Super League,F. Bongeli,FC Luzern,0,2
+sui.1,Super League,Baltazar Costa,FC Sion,0,2
+sui.1,Super League,M. Gutbub,FC Thun,0,2
+sui.1,Super League,S. Bukinac,BSC Young Boys,0,2
+sui.1,Super League,J. Karlsson,Servette FC,0,1
+sui.1,Super League,B. Mazikou,Servette FC,0,1
+sui.1,Super League,Houboulang Mendes,Servette FC,0,1
+sui.1,Super League,L. Njoh,Servette FC,0,1
+sui.1,Super League,J. Simo,Servette FC,0,1
+sui.1,Super League,S. Stroscio,Grasshopper Club Zürich,0,1
+sui.1,Super League,Manex Guibelalde,Grasshopper Club Zürich,0,1
+sui.1,Super League,D. Sahin,Grasshopper Club Zürich,0,1
+sui.1,Super League,B. Fazliji,FC St.Gallen 1879,0,1
+sui.1,Super League,C. Kleine-Bekel,FC St.Gallen 1879,0,1
+sui.1,Super League,D. Besio,FC St.Gallen 1879,0,1
+sui.1,Super League,F. Daniliuc,FC Basel 1893,0,1
+sui.1,Super League,L. Leroy,FC Basel 1893,0,1
+sui.1,Super League,S. Koné,FC Lausanne-Sport,0,1
+sui.1,Super League,S. Traore,FC Lausanne-Sport,0,1
+sui.1,Super League,I. Despotovic,FC Lausanne-Sport,0,1
+sui.1,Super League,L. Comenencia,FC Zürich,0,1
+sui.1,Super League,D. Reverson,FC Zürich,0,1
+sui.1,Super League,S. Hodza,FC Zürich,0,1
+sui.1,Super League,L. Schödler,FC Zürich,0,1
+sui.1,Super League,D. von Ballmoos,FC Lugano,0,1
+sui.1,Super League,M. Zanotti,FC Lugano,0,1
+sui.1,Super League,J. Bichsel,FC Lugano,0,1
+sui.1,Super League,A. Oehlers,FC Luzern,0,1
+sui.1,Super League,Lucas Ferreira,FC Luzern,0,1
+sui.1,Super League,B. Kololli,FC Sion,0,1
+sui.1,Super League,Marquinhos Cipriano,FC Sion,0,1
+sui.1,Super League,L. Dähler,FC Thun,0,1
+sui.1,Super League,D. Derbaci,FC Thun,0,1
+sui.1,Super League,E. Etoski,BSC Young Boys,0,1
+sui.1,Super League,B. Guirassy,BSC Young Boys,0,1
+sui.1,Super League,D. Sorgić,FC Vaduz,0,1

@@ -1,75 +1,63 @@
 package stats
 
 import java.io.File
+import java.nio.file.{Files, Paths, StandardCopyOption}
 import scala.io.Source
+import scala.util.{Try, Using}
 
 object Data:
-  private val expectedHeader = "leagueId,leagueName,playerName,team,goals,assists"
+  private val header = "leagueId,leagueName,playerName,team,goals,assists"
 
-  def loadPlayers(csvPath: String): Either[String, Vector[Player]] =
-    val file = new File(csvPath)
-    if !file.exists() then
-      Left(s"CSV-Datei nicht gefunden: $csvPath")
+  // Erst die neue Datei fertig schreiben, dann die alte ersetzen.
+  def savePlayers(path: String, players: Vector[Player]): Either[String, Unit] =
+    val rows = players.map { p =>
+      Vector(p.leagueId, p.leagueName, p.name, p.team, p.goals.toString, p.assists.toString)
+    }
+    if rows.exists(_.exists(value => value.exists(c => c == ',' || c == '\n' || c == '\r'))) then
+      Left("CSV-Felder dürfen keine Kommas oder Zeilenumbrüche enthalten")
     else
-      try
-        val lines = Source.fromFile(file, "UTF-8").getLines().toVector
-        if lines.isEmpty then
-          Left(s"CSV-Datei ist leer: $csvPath")
-        else
-          val header = lines.head.trim
-          if header != expectedHeader then
-            Left(
-              s"CSV-Header ist ungültig. Erwartet: $expectedHeader; gefunden: $header"
-            )
-          else
-            val parsedRows = lines.tail.filter(_.trim.nonEmpty).zipWithIndex.map { case (line, index) =>
-              parseRow(line, index + 2)
-            }
-            val errors = parsedRows.collect { case Left(error) => error }
-            if errors.nonEmpty then Left(errors.head)
-            else
-              Right(parsedRows.collect { case Right(player) => player })
-      catch
-        case error: Exception =>
-          Left(s"CSV konnte nicht gelesen werden: ${error.getMessage}")
+      val lines = header +: rows.map(_.mkString(","))
+      parse(lines).flatMap { _ =>
+        Try {
+          val target = Paths.get(path).toAbsolutePath
+          val temporary = Files.createTempFile(target.getParent, ".fotstats-", ".tmp")
+          try
+            Files.writeString(temporary, lines.mkString("\n") + "\n")
+            Files.move(temporary, target, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING)
+            ()
+          finally Files.deleteIfExists(temporary)
+        }.toEither.left.map(error => s"CSV konnte nicht gespeichert werden: ${error.getMessage}")
+      }
 
-  private def parseRow(line: String, lineNumber: Int): Either[String, Player] =
-    val parts = line.split(",", -1).map(_.trim)
-    if parts.length != 6 then
-      Left(s"Zeile $lineNumber: ungültige Spaltenanzahl (${parts.length})")
+  // Using schliesst die Datei nach dem Lesen, auch bei einem Fehler.
+  def loadPlayers(path: String): Either[String, Vector[Player]] =
+    if !new File(path).exists() then Left(s"CSV-Datei nicht gefunden: $path")
     else
-      val Array(leagueId, leagueName, playerName, team, goalsText, assistsText) = parts
-      for
-        goals <- parseInt(goalsText, s"Zeile $lineNumber: Tore ist ungültig")
-        assists <- parseInt(assistsText, s"Zeile $lineNumber: Assists sind ungültig")
-        name <- validateText(playerName, s"Zeile $lineNumber: Spielername fehlt")
-        teamName <- validateText(team, s"Zeile $lineNumber: Team fehlt")
-        league <- validateText(leagueId, s"Zeile $lineNumber: Liga fehlt")
-        leagueDisplay <- validateText(leagueName, s"Zeile $lineNumber: Ligabezeichnung fehlt")
-      yield
-        Player(
-          id = s"${league}_${name}_${teamName}",
-          name = name,
-          team = teamName,
-          leagueId = league,
-          leagueName = leagueDisplay,
-          goals = goals,
-          assists = assists
-        )
+      Using(Source.fromFile(path, "UTF-8")) { source =>
+        parse(source.getLines().toVector)
+      }.toEither.left.map(error => s"CSV konnte nicht gelesen werden: ${error.getMessage}").flatMap(identity)
 
-  private def parseInt(value: String, errorMessage: String): Either[String, Int] =
-    try Right(value.toInt)
-    catch
-      case _: NumberFormatException => Left(errorMessage)
+  private def parse(lines: Vector[String]): Either[String, Vector[Player]] =
+    if lines.headOption.map(_.trim) != Some(header) then Left("CSV-Header ist ungültig oder die Datei ist leer.")
+    else
+      val rows = lines.tail.zipWithIndex.filter(_._1.trim.nonEmpty).map { (line, index) =>
+        parseRow(line, index + 2)
+      }
+      rows.collectFirst { case Left(error) => error } match
+        case Some(error) => Left(error)
+        case None => Right(rows.collect { case Right(player) => player })
 
-  private def validateText(value: String, errorMessage: String): Either[String, String] =
-    if value.isEmpty then Left(errorMessage)
-    else Right(value)
+  private def parseRow(line: String, number: Int): Either[String, Player] =
+    line.split(",", -1).map(_.trim) match
+      case Array(leagueId, leagueName, name, team, goalsText, assistsText)
+          if Vector(leagueId, leagueName, name, team).forall(_.nonEmpty) =>
+        for
+          goals <- goalsText.toIntOption.filter(_ >= 0).toRight(s"Zeile $number: Tore ist ungültig")
+          assists <- assistsText.toIntOption.filter(_ >= 0).toRight(s"Zeile $number: Assists sind ungültig")
+        yield Player(s"${leagueId}_${name}_${team}", name, team, leagueId, leagueName, goals, assists)
+      case _ => Left(s"Zeile $number: sechs Spalten und vollständige Namen erforderlich.")
 
   def groupByLeague(players: Vector[Player]): Vector[League] =
     players.groupBy(_.leagueId).toVector
       .sortBy(_._1)
-      .map { case (leagueId, leaguePlayers) =>
-        val first = leaguePlayers.head
-        League(id = leagueId, name = first.leagueName, players = leaguePlayers.sortBy(_.name.toLowerCase))
-      }
+      .map { (id, members) => League(id, members.head.leagueName, members.sortBy(_.name.toLowerCase)) }

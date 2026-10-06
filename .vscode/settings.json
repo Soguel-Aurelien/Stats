@@ -1,0 +1,17 @@
+{
+  "files.exclude": {
+    "**/target": false,
+    ".tools": false,
+    "project/project": false,
+    ".bsp": false,
+    ".bloop": false,
+    ".metals": false,
+    ".scala-build": false
+  },
+  "search.exclude": {
+    "**/target": true,
+    ".tools": true,
+    "project/project": true
+  },
+  "explorer.compactFolders": true
+}

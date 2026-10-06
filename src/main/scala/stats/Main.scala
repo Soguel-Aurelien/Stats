@@ -3,173 +3,119 @@ package stats
 import scala.annotation.tailrec
 import scala.io.StdIn.readLine
 
-case class AppState(leagues: Vector[League], players: Vector[Player], selectedLeagueId: String):
-  def selectedLeague: Option[League] = leagues.find(_.id == selectedLeagueId)
+case class AppState(leagues: Vector[League], players: Vector[Player], selectedLeagueId: String, csvPath: String):
+  def leagueName: String = leagues.find(_.id == selectedLeagueId).map(_.name).getOrElse("Keine Liga")
+  def leaguePlayers: Vector[Player] = players.filter(_.leagueId == selectedLeagueId)
 
 object Main:
   def main(args: Array[String]): Unit =
     val csvPath = args.headOption.getOrElse("players.csv")
     Data.loadPlayers(csvPath) match
-      case Left(error) =>
-        println(s"Fehler: $error")
-        println("Bitte prüfen Sie die CSV-Datei und starten Sie das Programm erneut.")
-      case Right(allPlayers) =>
-        val leagues = Data.groupByLeague(allPlayers)
-        val selectedId = leagues.headOption.map(_.id).getOrElse("")
-        println("Fußballstatistiken – Konsolenanwendung")
-        println("====================================")
-        menuLoop(AppState(leagues, allPlayers, selectedId))
+      case Left(error) => println(s"Fehler: $error")
+      case Right(players) =>
+        val leagues = Data.groupByLeague(players)
+        if leagues.isEmpty then println("Keine Spieler vorhanden.")
+        else
+          println("FOTSTATS - Fussballstatistiken im Terminal")
+          println(s"Änderungen werden automatisch in $csvPath gespeichert.")
+          try menuLoop(AppState(leagues, players, leagues.head.id, csvPath))
+          catch case _: java.io.EOFException => println("\nEingabe beendet. Auf Wiedersehen!")
 
+  // Das Menü ruft sich mit den aktuellen Daten wieder auf.
   @tailrec
   private def menuLoop(state: AppState): Unit =
-    println()
-    println("Menü:")
-    println("1) Liga wählen")
-    println("2) Top 15 nach Toren")
-    println("3) Top 15 nach Assists")
-    println("4) Top 15 nach Scorer")
-    println("5) Spieler suchen")
-    println("6) Tore und Assists ändern")
-    println("0) Beenden")
-    println(s"Aktive Liga: ${state.selectedLeague.map(_.name).getOrElse("Keine")}")
-
-    readIntOption() match
-      case Some(0) =>
-        println("Auf Wiedersehen! Das Programm wird sauber beendet.")
-      case Some(1) =>
-        chooseLeague(state) match
-          case Some(newLeagueId) => menuLoop(state.copy(selectedLeagueId = newLeagueId))
-          case None => menuLoop(state)
-      case Some(2) =>
-        showRanking(state, "goals")
+    println(s"\n${state.leagueName}")
+    println("1 Liga wählen | 2 Tore | 3 Assists | 4 Scorer")
+    println("5 Werte ändern | 6 Spieler suchen | 0 Beenden")
+    ask("Auswahl: ") match
+      case "0" => println("Auf Wiedersehen!")
+      case "1" => menuLoop(chooseLeague(state))
+      case "2" =>
+        showRanking(state, "goals", "Tore")
         menuLoop(state)
-      case Some(3) =>
-        showRanking(state, "assists")
+      case "3" =>
+        showRanking(state, "assists", "Assists")
         menuLoop(state)
-      case Some(4) =>
-        showRanking(state, "scorer")
+      case "4" =>
+        showRanking(state, "scorer", "Scorerpunkte")
         menuLoop(state)
-      case Some(5) =>
-        searchPlayers(state)
+      case "5" => menuLoop(editPlayer(state))
+      case "6" =>
+        findPlayers(state)
         menuLoop(state)
-      case Some(6) =>
-        val nextState = updatePlayerStats(state)
-        menuLoop(nextState)
       case _ =>
-        println("Ungültige Eingabe. Bitte nur Zahlen von 0 bis 6 eingeben.")
+        println("Bitte eine Zahl von 0 bis 6 eingeben.")
         menuLoop(state)
 
-  private def chooseLeague(state: AppState): Option[String] =
-    if state.leagues.isEmpty then
-      println("Keine Ligen verfügbar.")
-      None
+  private def chooseLeague(state: AppState): AppState =
+    state.leagues.zipWithIndex.foreach { (league, index) =>
+      println(s"${index + 1} ${league.name}")
+    }
+    val choice = ask("Liga-Nummer (0 = zurück): ").toIntOption
+    if choice.contains(0) then state
     else
-      println("Verfügbare Ligen:")
-      state.leagues.zipWithIndex.foreach { case (league, index) =>
-        println(s"${index + 1}. ${league.name}")
-      }
-      println("0. Zurück")
-      readIntOption() match
-        case Some(0) => None
-        case Some(choice) if choice > 0 && choice <= state.leagues.size =>
-          Some(state.leagues(choice - 1).id)
-        case _ =>
-          println("Ungültige Auswahl. Bitte eine gültige Liga wählen.")
-          None
-
-  private def showRanking(state: AppState, metric: String): Unit =
-    state.selectedLeague match
-      case Some(selectedLeague) =>
-        val leaguePlayers = state.players.filter(_.leagueId == selectedLeague.id)
-        val ranking = Model.topPlayers(leaguePlayers, metric, 15)
-
-        if ranking.isEmpty then
-          println(s"Für ${selectedLeague.name} sind keine Spieler vorhanden.")
-        else
-          printRankingHeader(metric, selectedLeague.name)
-          ranking.zipWithIndex.foreach { case (player, index) =>
-            println(
-              f"${index + 1}. ${player.name}%-22s ${player.team}%-22s Tore: ${player.goals}%-2d | Assists: ${player.assists}%-2d | Scorer: ${player.scorerPoints}%-2d"
-            )
-          }
-      case None =>
-        println("Bitte zuerst eine Liga auswählen.")
-
-  private def printRankingHeader(metric: String, leagueName: String): Unit =
-    val label = metric.toLowerCase match
-      case "goals" => "Tore"
-      case "assists" => "Assists"
-      case "scorer" => "Scorerpunkte"
-      case _ => "Scorerpunkte"
-    println(s"\nTop 15 nach $label – $leagueName")
-
-  private def searchPlayers(state: AppState): Unit =
-    state.selectedLeague match
-      case Some(selectedLeague) =>
-        print("Suchbegriff für Name oder Team: ")
-        val term = readLine().trim
-        if term.isEmpty then
-          println("Ein leerer Suchbegriff ist nicht gültig.")
-        else
-          val matches = Model.searchPlayers(state.players.filter(_.leagueId == selectedLeague.id), term)
-          if matches.isEmpty then
-            println(s"Keine Treffer für '$term' in ${selectedLeague.name}.")
-          else
-            matches.sortBy(_.name.toLowerCase).zipWithIndex.foreach { case (player, index) =>
-              println(s"${index + 1}. ${player.name} | ${player.team} | Tore: ${player.goals} | Assists: ${player.assists} | Scorer: ${player.scorerPoints}")
-            }
-      case None =>
-        println("Bitte zuerst eine Liga auswählen.")
-
-  private def updatePlayerStats(state: AppState): AppState =
-    state.selectedLeague match
-      case Some(selectedLeague) =>
-        val leaguePlayers = state.players.filter(_.leagueId == selectedLeague.id)
-        if leaguePlayers.isEmpty then
-          println(s"In ${selectedLeague.name} gibt es keine Spieler zum Ändern.")
+      choice.flatMap(number => state.leagues.lift(number - 1)) match
+        case Some(league) => state.copy(selectedLeagueId = league.id)
+        case None =>
+          println("Ungültige Liga-Nummer.")
           state
-        else
-          print("Spielername oder Teilstring: ")
-          val query = readLine().trim
-          val matches = Model.searchPlayers(leaguePlayers, query)
-          if matches.isEmpty then
-            println(s"Kein passender Spieler in ${selectedLeague.name} gefunden.")
-            state
-          else
-            val selected = matches.sortBy(_.name.toLowerCase).head
-            println(s"Ausgewählt: ${selected.name} (${selected.team})")
-            readNonNegativeInt("Neue Tore: ") match
-              case None =>
-                println("Die Tore müssen eine gültige nicht-negative Zahl sein.")
-                state
-              case Some(newGoals) =>
-                readNonNegativeInt("Neue Assists: ") match
-                  case None =>
-                    println("Die Assists müssen eine gültige nicht-negative Zahl sein.")
-                    state
-                  case Some(newAssists) =>
-                    val updatedPlayers = state.players.map { player =>
-                      if player.id == selected.id then Model.updateStats(player, newGoals, newAssists) else player
-                    }
-                    val updatedPlayer = updatedPlayers.find(_.id == selected.id).getOrElse(selected)
-                    println(
-                      s"Aktualisiert: ${updatedPlayer.name} -> Tore: ${updatedPlayer.goals}, Assists: ${updatedPlayer.assists}, Scorer: ${updatedPlayer.scorerPoints}"
-                    )
-                    state.copy(players = updatedPlayers)
-      case None =>
-        println("Bitte zuerst eine Liga auswählen.")
-        state
 
-  private def readIntOption(): Option[Int] =
-    val entered = readLine()
-    if entered == null || entered.trim.isEmpty then None
+  private def showRanking(state: AppState, metric: String, label: String): Unit =
+    println(s"\nTop 15: $label - ${state.leagueName}")
+    println(f"${"#"}%3s ${"Spieler"}%-22s ${"Verein"}%-22s ${"Tore"}%5s ${"Assists"}%7s ${"Scorer"}%7s")
+    Model.topPlayers(state.leaguePlayers, metric).zipWithIndex.foreach { (player, index) =>
+      println(f"${index + 1}%3d ${player.name.take(22)}%-22s ${player.team.take(22)}%-22s ${player.goals}%5d ${player.assists}%7d ${player.scorerPoints}%7d")
+    }
+
+  // Diese Suche brauchen wir auch beim Ändern der Werte.
+  private def findPlayers(state: AppState): Vector[Player] =
+    val query = ask("Spielername oder Team: ")
+    val matches = Model.searchPlayers(state.leaguePlayers, query).sortBy(_.name.toLowerCase)
+    if matches.isEmpty then println("Keine Treffer. Bitte einen Namen oder ein Team eingeben.")
+    matches.zipWithIndex.foreach { (player, index) =>
+      println(s"${index + 1} ${player.name} (${player.team}) - ${player.goals} Tore, ${player.assists} Assists, ${player.scorerPoints} Scorer")
+    }
+    matches
+
+  private def editPlayer(state: AppState): AppState =
+    val matches = findPlayers(state)
+    if matches.isEmpty then state
     else
-      try Some(entered.trim.toInt)
-      catch
-        case _: NumberFormatException => None
+      val choice = ask("Spieler-Nummer (0 = abbrechen): ").toIntOption
+      if choice.contains(0) then
+        println("Abgebrochen. Werte bleiben erhalten.")
+        state
+      else
+        choice.flatMap(number => matches.lift(number - 1)) match
+          case None =>
+            println("Ungültige Auswahl. Werte bleiben erhalten.")
+            state
+          case Some(player) =>
+            println(s"${player.name}: bisher ${player.goals} Tore, ${player.assists} Assists.")
+            println("Neue Gesamtwerte eingeben, nicht die Anzahl zusätzlicher Tore/Assists.")
+            val updated = for
+              goals <- readCount("Neue Tore: ")
+              assists <- readCount("Neue Assists: ")
+            yield Model.updateStats(player, goals, assists)
+            updated match
+              case None => state
+              case Some(changed) =>
+                val players = state.players.map(p => if p.id == changed.id then changed else p)
+                Data.savePlayers(state.csvPath, players) match
+                  case Left(error) =>
+                    println(s"Nicht gespeichert: $error. Die bisherigen Werte bleiben erhalten.")
+                    state
+                  case Right(_) =>
+                    val next = state.copy(players = players)
+                    println(s"Gespeichert in ${state.csvPath}: ${changed.name} - ${changed.goals} Tore + ${changed.assists} Assists = ${changed.scorerPoints} Scorerpunkte.")
+                    showRanking(next, "scorer", "Scorerpunkte")
+                    next
 
-  private def readNonNegativeInt(prompt: String): Option[Int] =
+  private def ask(prompt: String): String =
     print(prompt)
-    readIntOption() match
-      case Some(value) if value >= 0 => Some(value)
-      case _ => None
+    Option(readLine()).getOrElse(throw new java.io.EOFException()).trim
+
+  private def readCount(prompt: String): Option[Int] =
+    val number = ask(prompt).toIntOption.filter(_ >= 0)
+    if number.isEmpty then println("Bitte eine ganze Zahl ab 0 eingeben. Werte bleiben erhalten.")
+    number
