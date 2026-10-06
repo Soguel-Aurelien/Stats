@@ -2,6 +2,8 @@
 
 Eine Scala-Konsolen-App für Fussballstatistiken. Man kann Ligen auswählen, Spieler suchen und Tore oder Assists ändern.
 
+Eine kurze Erklärung zum Aufbau steht in der [Dokumentation](DOKUMENTATION.md).
+
 ## Starten
 
 Für Windows braucht man Java JDK 17 oder neuer. Beim ersten Start ist Internet nötig, um Scala und sbt herunterzuladen.
