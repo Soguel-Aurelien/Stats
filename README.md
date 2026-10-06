@@ -1,37 +1,32 @@
 # Fotstats
 
-Fotstats ist eine Konsolen-App in Scala für Fussballstatistiken. Man kann eine Liga auswählen, Ranglisten anschauen und Tore oder Assists ändern. Scorerpunkte sind Tore plus Assists. Die Daten sind gespeichert, nicht live.
+Eine Scala-Konsolen-App für Fussballstatistiken. Man kann Ligen auswählen, Spieler suchen und Tore oder Assists ändern.
 
 ## Starten
 
-Unter Windows braucht man Java JDK 17 oder neuer und PowerShell. Beim ersten Start ist Internet nötig, weil Scala und sbt heruntergeladen werden.
+Für Windows braucht man Java JDK 17 oder neuer. Beim ersten Start ist Internet nötig, um Scala und sbt herunterzuladen.
 
-1. Den Projektordner herunterladen und gegebenenfalls die ZIP entpacken.
-2. Den Ordner in VS Code öffnen und ein neues Terminal öffnen.
-3. Mit `java -version` prüfen, ob Java installiert ist. Falls der Befehl fehlt, zuerst ein JDK installieren und das Terminal neu öffnen.
-4. Im Projektordner starten:
+Den Projektordner entpacken, in VS Code öffnen und im Terminal ausführen:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
-Der erste Start dauert etwas länger. Sobald das Menü erscheint, eine Zahl eingeben und mit Enter bestätigen. Falls `Create a new server?` erscheint, andere laufende Starts beenden und mit `y` bestätigen.
-
-Mit installiertem sbt geht auch `sbt run`. Unter macOS/Linux braucht man Java und sbt; dort haben wir den Start noch nicht getestet.
+Falls Java fehlt, zuerst ein JDK installieren und das Terminal neu öffnen. Mit `java -version` kann man das prüfen. Der erste Start kann ein paar Minuten dauern.
 
 ## Bedienung
 
+Eine Zahl eingeben und Enter drücken:
+
 - 1: Liga wählen
-- 2: Torschützen anzeigen
+- 2: Tore anzeigen
 - 3: Assists anzeigen
 - 4: Scorer anzeigen
-- 5: Spielerwerte ändern
-- 6: Spieler oder Team suchen
+- 5: Werte ändern
+- 6: Spieler suchen
 - 0: Beenden
 
-Beispiel: `5`, `Haaland`, `1`, `10`, `3` eingeben, jeweils mit Enter. Haaland hat danach insgesamt 10 Tore, 3 Assists und 13 Scorerpunkte.
-
-Änderungen werden direkt in `players.csv` gespeichert und bleiben nach dem Neustart erhalten. Die Meldung „Gespeichert in …“ bestätigt das. Bei einem Speicherfehler bleiben die alten Werte erhalten. Nur eine App gleichzeitig mit derselben Datei öffnen.
+Scorerpunkte sind Tore plus Assists. Bei Änderungen gibt man die neuen Gesamtwerte ein. Sie werden in `players.csv` gespeichert und bleiben nach dem Neustart erhalten. Die App bestätigt das Speichern im Terminal.
 
 ## Tests
 
@@ -39,16 +34,12 @@ Beispiel: `5`, `Haaland`, `1`, `10`, `3` eingeben, jeweils mit Enter. Haaland ha
 powershell -NoProfile -ExecutionPolicy Bypass -File .\start.ps1 test
 ```
 
-Mit sbt: `sbt test`. Die Tests prüfen unter anderem Ranglisten, Suche und Speichern.
-
-## Aufbau
+## Dateien
 
 Der Code liegt in `src/main/scala/stats`:
 
-- `Main.scala`: Menü und Ein-/Ausgabe
-- `Model.scala`: Daten und Berechnungen
-- `Data.scala`: CSV lesen und speichern
+- `Main.scala`: Menü
+- `Model.scala`: Berechnungen
+- `Data.scala`: Daten lesen und speichern
 
-Die Tests stehen in `src/test/scala/stats/StatsSuite.scala`. Das Modell arbeitet mit unveränderbaren Daten. Das Menü ist rekursiv.
-
-Zum Weitergeben den Projektordner mit `src`, `project`, `players.csv`, `build.sbt` und `start.ps1` kopieren. `target`, `project/target` und `.tools` braucht man nicht mitzugeben. Diese Ordner werden automatisch erstellt. Spielerwerte nur in der `players.csv` im Projektordner ändern, nicht unter `target`.
+Beim Weitergeben den ganzen Projektordner kopieren. Nur `target`, `project/target` und `.tools` kann man weglassen, da sie automatisch erstellt werden. `players.csv` muss dabei sein.
