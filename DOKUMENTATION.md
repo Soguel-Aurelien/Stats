@@ -1,4 +1,4 @@
-# Fotstats – kurze Dokumentation
+# Fotstats – kurze Doku
 
 ## Idee
 
